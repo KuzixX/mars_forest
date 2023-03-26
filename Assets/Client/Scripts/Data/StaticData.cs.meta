@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 976d31bac72657a41bd546cfa97a26ad
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - simpleTree: {instanceID: 0}
+  - mainCharacter: {instanceID: 0}
+  - freeTile: {fileID: 11400000, guid: 7b49816422e3e104c8032c444a3334b5, type: 2}
+  - lockTile: {fileID: 11400000, guid: 748415841bc9ab24e8214f3e669e678f, type: 2}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

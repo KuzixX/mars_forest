@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/firebase_database_url,@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id,@string/default_web_client_id">
+  <string name="firebase_database_url" translatable="false">https://planetcity-9d502-default-rtdb.firebaseio.com</string>
+  <string name="gcm_defaultSenderId" translatable="false">164697566724</string>
+  <string name="google_storage_bucket" translatable="false">planetcity-9d502.appspot.com</string>
+  <string name="project_id" translatable="false">planetcity-9d502</string>
+  <string name="google_api_key" translatable="false">AIzaSyBofpFthone5Sal0f9-TDIJ_eA0C0stCHM</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBofpFthone5Sal0f9-TDIJ_eA0C0stCHM</string>
+  <string name="google_app_id" translatable="false">1:164697566724:android:59e68a04b44725ba528f51</string>
+  <string name="default_web_client_id" translatable="false">164697566724-btfq5lqj9ult890tlc78otp5kivli9nj.apps.googleusercontent.com</string>
+</resources>

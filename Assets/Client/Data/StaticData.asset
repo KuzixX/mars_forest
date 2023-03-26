@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 976d31bac72657a41bd546cfa97a26ad, type: 3}
+  m_Name: StaticData
+  m_EditorClassIdentifier: 
+  treesData:
+  - {fileID: 11400000, guid: 08e49c66054d6ac42b80288bc6458dbb, type: 2}
+  - {fileID: 11400000, guid: e48b030e6b1983049a24bbef6c469de8, type: 2}
+  - {fileID: 11400000, guid: 788362ff43b086d4d8ecd2a1dfd780f9, type: 2}
+  - {fileID: 11400000, guid: 6aec4cdfd08da924cadce31e32459aa0, type: 2}
+  - {fileID: 11400000, guid: f149707e9c30db340adc936ea738576a, type: 2}
+  - {fileID: 11400000, guid: 667471ead32a22140b73f7dea82872e6, type: 2}
+  quests:
+  - {fileID: 11400000, guid: 503709d6ea4b6a345a73f3c844ea4154, type: 2}
+  - {fileID: 11400000, guid: 0e2f57ba5802b4047a7e8ec7272ad38b, type: 2}
+  - {fileID: 11400000, guid: 820c4d366925521438af9dfc6843ff8a, type: 2}
+  - {fileID: 11400000, guid: 5fa2ec86bb07b1c4db9a8ff5da60f5dc, type: 2}
+  - {fileID: 11400000, guid: 58aadfbd95f9bd94ca41f844d6841bda, type: 2}
+  products:
+  - {fileID: 11400000, guid: 930db8fed8f63134f84d389055366dc9, type: 2}
+  - {fileID: 11400000, guid: 104d9f49607990041bd9aba082bd7ffc, type: 2}
+  - {fileID: 11400000, guid: a74d7dd638660aa47a3686bdc0f2776e, type: 2}
+  - {fileID: 11400000, guid: f6160229b63c6a043abe4a7ef72a9007, type: 2}
+  - {fileID: 11400000, guid: facc28405e451a6489ac0cd313cd21bd, type: 2}
+  - {fileID: 11400000, guid: 32e5c14fd9f660a4890d3d0944b6f0a7, type: 2}
+  diamonds:
+  - {fileID: 11400000, guid: d0dca47f91cb64844a87e8ad8af6fd44, type: 2}
+  - {fileID: 11400000, guid: eb0ad0a3a1c6f864e83e60d85611ade9, type: 2}
+  - {fileID: 11400000, guid: 2e2f5577a0a1e8e4aacc47653cfcd183, type: 2}
+  - {fileID: 11400000, guid: 2e2f5577a0a1e8e4aacc47653cfcd183, type: 2}
+  - {fileID: 11400000, guid: 2e2f5577a0a1e8e4aacc47653cfcd183, type: 2}
+  - {fileID: 11400000, guid: 2e2f5577a0a1e8e4aacc47653cfcd183, type: 2}
+  mainCharacter: {fileID: 11400000, guid: d4e76605ac02ba347bfe6463278bf9e2, type: 2}
+  freeTile: {fileID: 11400000, guid: 7b49816422e3e104c8032c444a3334b5, type: 2}
+  lockTile: {fileID: 11400000, guid: 748415841bc9ab24e8214f3e669e678f, type: 2}
+  lightDisk: {fileID: 7583450498362998733, guid: b893e06a89ce49d4abb0a34f0cc8794e, type: 3}
+  target: {fileID: 6089271012037176295, guid: 96dcf23c826b86e4cbafc078e83c87a8, type: 3}
+  defaultCamPos: {fileID: 3243503612803608257, guid: 0d595c415bcd24a4ba759a796d7095b0, type: 3}
+  levelUpTitle: {fileID: 6341657126784850256, guid: f462a7d1c0c89b54780e099e79d30760, type: 3}
+  uiItemElement: {fileID: 815435150694758878, guid: 6c97d9c8a9283d842a0f78a13056c8d7, type: 3}
+  goldSprite: {fileID: 5619403006187035283, guid: 977a71309e132f54ba9500f97391bbab, type: 3}
+  uiQuestElement: {fileID: 219090374459084602, guid: 4cab2f374dd8eb64685a804d192288e0, type: 3}
+  uiShopElement: {fileID: 6112776759471561565, guid: cf1d1ca77606af3469f3bd91319c4c85, type: 3}
+  instagramUrl: https://www.instagram.com/kuzixx/
+  youTubeUrl: 
+  facebookUrl: 
