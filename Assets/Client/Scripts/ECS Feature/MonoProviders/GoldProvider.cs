@@ -1,3 +1,4 @@
+using Client.Scripts.ECS_Feature.Components;
 using Client.Scripts.ECS.Components;
 using Voody.UniLeo;
 
