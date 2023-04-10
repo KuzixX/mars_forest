@@ -1,7 +1,7 @@
 using Client.Scripts.Data;
 using Client.Scripts.ECS_Feature.Components;
+using Client.Scripts.ECS_Feature.Interaction_Features.Component;
 using Client.Scripts.ECS.Components;
-using Client.Scripts.MonoBehaviors.UI;
 using Leopotam.Ecs;
 using Leopotam.Ecs.Ui.Components;
 using UnityEngine;
@@ -10,14 +10,14 @@ namespace Client.Scripts.ECS_Feature.SpawnCellObject.System
 {
     internal class CellObjectDataGenerator : IEcsRunSystem
     {
-        private UI _ui;
+        private MonoBehaviors.UI.UI _ui;
         private EcsWorld _world;
         private readonly StaticData _staticData;
         private readonly EcsFilter<MainCamera> _mainCamera;
         private readonly EcsFilter<InGameResources> _resources;
         private readonly EcsFilter<SpawnCellObjectData> _tempTreeData;
         private readonly EcsFilter<EcsUiClickEvent> _clickEvents;
-        private readonly EcsFilter<GetCellPositionComponent> _hitCellCenter;
+        private readonly EcsFilter<InteractionData> _interaction;
 
         public void Run()
         {
@@ -27,7 +27,7 @@ namespace Client.Scripts.ECS_Feature.SpawnCellObject.System
             {
                 ref var clickData = ref _clickEvents.Get1(index);
                 ref var resources = ref _resources.Get1(0);
-                ref var position = ref _hitCellCenter.Get1(0);
+                ref var position = ref _interaction.Get1(0);
                 ref var mainCamera = ref _mainCamera.GetEntity(0);
                 ref var tempTreeData = ref _tempTreeData.GetEntity(0);
 

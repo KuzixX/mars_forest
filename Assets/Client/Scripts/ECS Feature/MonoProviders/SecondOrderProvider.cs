@@ -1,9 +1,10 @@
+using Client.Scripts.ECS_Feature.Robot;
 using Client.Scripts.ECS.Components;
 using Voody.UniLeo;
 
 namespace Client.Scripts.ECS.MonoProviders
 {
-    public sealed class SecondOrderProvider : MonoProvider<SecondOrderComponent>
+    public sealed class SecondOrderProvider : MonoProvider<RobotComponent>
     {
     
     }

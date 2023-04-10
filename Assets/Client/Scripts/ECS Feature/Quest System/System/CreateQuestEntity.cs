@@ -10,7 +10,7 @@ namespace Client.Scripts.ECS_Feature.Quest_System.System
     {
         private StaticData _staticData;
         private SceneData _sceneData;
-        private UI _ui;
+        private MonoBehaviors.UI.UI _ui;
         private EcsWorld _world;
         public void Init()
         {
@@ -33,8 +33,7 @@ namespace Client.Scripts.ECS_Feature.Quest_System.System
                 quest.Get<QuestComponent>().QuestType = _staticData.Quest[i].Objective.ToString();
                 quest.Get<QuestComponent>().QuestRequirementCount = _staticData.Quest[i].QuestRequirementCount;
                 quest.Get<QuestComponent>().ParticleSystem = _ui.questScreen.questItmes[i].GetComponent<QuestItem>().particleSystem;
-                quest.Get<QuestComponent>().ParticleSpawnPoint =
-                    _ui.questScreen.questItmes[i].GetComponent<QuestItem>().particleSpawnPoint;
+                quest.Get<QuestComponent>().ParticleSpawnPoint = _ui.questScreen.questItmes[i].GetComponent<QuestItem>().particleSpawnPoint;
             } 
         }
     }

@@ -63,10 +63,11 @@
       "hash": "70cd76063aae51a44059c95710c19c5d09cfd550"
     },
     "com.leopotam.ecs-unityintegration": {
-      "version": "file:C:/Users/Azamat/Downloads/ecs-unityintegration-master",
+      "version": "https://github.com/Leopotam/ecs-unityintegration.git",
       "depth": 0,
-      "source": "local",
-      "dependencies": {}
+      "source": "git",
+      "dependencies": {},
+      "hash": "16f527e942e4c03efabff357d718c4ba0092a477"
     },
     "com.unity.2d.sprite": {
       "version": "1.0.0",

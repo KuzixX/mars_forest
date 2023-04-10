@@ -1,10 +1,9 @@
 using Client.Scripts.Data;
 using Client.Scripts.ECS.Components;
 using Client.Scripts.MonoBehaviors;
-using Client.Scripts.MonoBehaviors.UI;
 using Leopotam.Ecs;
 
-namespace Client.Scripts.ECS_Feature.System
+namespace Client.Scripts.ECS_Feature.UI.System
 {
     internal class SetFullIcon : IEcsRunSystem
     {
@@ -12,7 +11,7 @@ namespace Client.Scripts.ECS_Feature.System
         private readonly EcsFilter<CellObject>.Exclude<IsFull> _tree;
         private StaticData _staticData;
         private SceneData _sceneData;
-        private UI _ui;
+        private MonoBehaviors.UI.UI _ui;
 
         public void Run()
         {

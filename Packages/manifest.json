@@ -7,7 +7,7 @@
     "com.google.firebase.firestore": "file:C:/Users/KuziX/Downloads/com.google.firebase.firestore-10.0.1.tgz",
     "com.leopotam.ecs": "https://github.com/Leopotam/ecs.git",
     "com.leopotam.ecs-ui": "https://github.com/Leopotam/ecs-ui.git",
-    "com.leopotam.ecs-unityintegration": "file:C:/Users/Azamat/Downloads/ecs-unityintegration-master",
+    "com.leopotam.ecs-unityintegration": "https://github.com/Leopotam/ecs-unityintegration.git",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.2d.tilemap": "1.0.0",
     "com.unity.2d.tilemap.extras": "2.2.3",
