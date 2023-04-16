@@ -1,16 +1,15 @@
-using Client.Scripts.ECS.Components;
-using Leopotam.Ecs;
+using System;
+using Client.Scripts.ECS_Feature_rebuild;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Screen = Client.Scripts.MonoBehaviors.UI.Screen;
+using Zenject;
 
 namespace Client.Scripts.MonoBehaviors.UI
 {
     public class MainScreen : Screen
     {
-    public global::Client.Scripts.MonoBehaviors.UI.UI ui;
-    private readonly EcsFilter<MainCamera> _cam;
+    public UI ui;
     [Header("Texts")] [SerializeField] public TextMeshProUGUI treesAmountText;
     [SerializeField] public TextMeshProUGUI expAmountText;
     [SerializeField] public TextMeshProUGUI goldAmountText;
@@ -28,7 +27,14 @@ namespace Client.Scripts.MonoBehaviors.UI
     [SerializeField] public Button questBtn;
     [SerializeField] public Button craftBtn;
     [SerializeField] public Button settingsBtn;
-
+    public IResourcesProtocol ResourcesProtocol;
+    
+    [Inject]
+    public void Construct(IResourcesProtocol resourcesProtocol)
+    {
+        ResourcesProtocol = resourcesProtocol;
+    }
+    
     private void Start()
     {
         // Show and hide screens
@@ -37,6 +43,14 @@ namespace Client.Scripts.MonoBehaviors.UI
         ShowScreen(ui.questScreen, questBtn, ui.questScreen.backButton);
         ShowScreen(ui.shopScreen, shopBtn, ui.shopScreen.backButton);
         ShowScreen(ui.screenshotScreen, takePictureBtn, ui.screenshotScreen.backBtn);
+        
+    }
+
+    private void Update()
+    {
+        goldAmountText.text = CurrencyConvertor.CurrencyToString(ResourcesProtocol.Gold);
+        expAmountText.text = CurrencyConvertor.CurrencyToString(ResourcesProtocol.Experience);
+        diamondsAmountText.text = CurrencyConvertor.CurrencyToString(ResourcesProtocol.Diamonds);
     }
 
     private void ShowScreen(Screen screen, Button showButton, Button hideButton)

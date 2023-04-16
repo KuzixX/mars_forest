@@ -1,6 +1,9 @@
+using System;
 using Client.Scripts.Data;
 using UnityEngine;
 using UnityEngine.UI;
+using Object = UnityEngine.Object;
+using Screen = Client.Scripts.MonoBehaviors.UI.Screen;
 
 namespace Client.Scripts.MonoBehaviors.UI
 {
@@ -18,7 +21,7 @@ namespace Client.Scripts.MonoBehaviors.UI
         public Button treesBtn;
 
         [SerializeField] private StaticData staticData;
-        [SerializeField] private UI ui;
+        [SerializeField] private global::Client.Scripts.MonoBehaviors.UI.UI ui;
 
         private void Awake()
         {
@@ -34,7 +37,8 @@ namespace Client.Scripts.MonoBehaviors.UI
         {
             for (int i = 0; i < staticData.TreesData.Length; i++)
             {
-                var newUiITemElement = Instantiate(staticData.UiItemElement, ui.craftScreen.treeMenuMenu.treeContainer.transform);
+                var newUiITemElement = Object.Instantiate(staticData.UiItemElement,
+                    ui.craftScreen.treeMenuMenu.treeContainer.transform);
                 newUiITemElement.image.sprite = staticData.TreesData[i].Image;
                 newUiITemElement.title.text = staticData.TreesData[i].Title;
                 newUiITemElement.description.text = staticData.TreesData[i].Description;

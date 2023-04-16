@@ -3,7 +3,7 @@ using Voody.UniLeo;
 
 namespace Client.Scripts.ECS.MonoProviders
 {
-    public class MainCameraTagProvider : MonoProvider<MainCamera>
+    public class MainCameraTagProvider : MonoProvider<CameraTag>
     {
     }
 }

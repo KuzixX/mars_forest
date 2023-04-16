@@ -1,4 +1,5 @@
 using Client.Scripts.Data;
+using Client.Scripts.ECS_Feature_rebuild.Quest_System.Component;
 using Client.Scripts.ECS.Components;
 using Leopotam.Ecs;
 using UnityEngine;

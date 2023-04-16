@@ -13,7 +13,7 @@ namespace Client.Scripts.ECS_Feature.Lighting_Free_Zone
         private readonly EcsFilter<Cell, Position> _cells;
         private readonly EcsFilter<EcsUiClickEvent> _clickEvents;
         private readonly EcsFilter<OnSetTreeEvent> _setTreeEvent;
-        private readonly EcsFilter<SpawnCellObjectData> _tempSpawnData;
+        private readonly EcsFilter<TempCellObjectData> _tempSpawnData;
 
         public void Run()
         {

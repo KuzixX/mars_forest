@@ -11,7 +11,7 @@ namespace ECS.System
     {
         private readonly EcsFilter<EcsUiClickEvent> _clickEvent;
         private readonly EcsFilter<EcsUiDownEvent> _downEvent;
-        private readonly EcsFilter<MainCamera> _mainCamera;
+        private readonly EcsFilter<CameraTag> _mainCamera;
         private readonly EcsFilter<Lock> _lockCameraFilter;
         private readonly UI _ui;
 

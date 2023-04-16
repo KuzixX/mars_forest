@@ -4,18 +4,18 @@ namespace Client.Scripts.MonoBehaviors.UI
 {
     public class UI : MonoBehaviour
     {
-        [Header("Screens")] 
+        [Header("Screens")]
         public MainScreen mainScreen;
         public CraftScreen craftScreen;
         public QuestScreen questScreen;
         public SettingsScreen settingsScreen;
         public ShopScreen shopScreen;
         public ScreenshotScreen screenshotScreen;
-        [Header("Fx")] 
+        [Header("Fx")]
         public ParticleSystem goldUIParticleSystem;
         public ParticleSystem expUIParticleSystem;
         public ParticleSystem diamondsUIParticleSystem;
-        [Header("Other")] 
+        [Header("Other")]
         public Canvas mainCanvas;
         public RectTransform mainCanvasRect;
     }

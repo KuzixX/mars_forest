@@ -1,3 +1,5 @@
+using Client.Scripts.ECS_Feature_rebuild.Quest_System.Component;
+using Client.Scripts.ECS_Feature_rebuild.Resources_Generation;
 using Client.Scripts.ECS.Components;
 using Client.Scripts.ECS.Components.EventCoponents;
 using Client.Scripts.MonoBehaviors;

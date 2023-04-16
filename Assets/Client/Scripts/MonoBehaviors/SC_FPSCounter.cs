@@ -1,10 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Client.Scripts.ECS_Feature_rebuild;
 using TMPro;
 using UnityEngine;
+using Zenject;
 
 public class SC_FPSCounter : MonoBehaviour
 {
+    
     /* Assign this script to any object in the Scene to display frames per second */
 
     [SerializeField] private TextMeshProUGUI _fpsText;
