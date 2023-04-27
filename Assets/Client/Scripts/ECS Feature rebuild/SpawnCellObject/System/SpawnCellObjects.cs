@@ -59,23 +59,17 @@ namespace Client.Scripts.ECS_Feature_rebuild.SpawnCellObject.System
             }
 
 
-            if(interactonData.RayInfo.collider == null || interactonData.RayInfo.collider.gameObject.layer != 3) return;
+            //if(interactonData.RayInfo.collider == null || interactonData.RayInfo.collider.gameObject.layer != 3) return;
             foreach (var index in _cells)
             {
-                Debug.Log("Cycle");
                 ref var cell = ref _cells.GetEntity(index);
-                
-                ref var spawnData = ref _tempSpawnData.GetEntity(0);
-                ref var eventEntity = ref _eventEntity.GetEntity(0);
 
-                Debug.Log("Cell" + cell.Get<Position>().transform.position);
-                Debug.Log("SelectedCell" + interactonData.CellPos);
+                ref var spawnData = ref _tempSpawnData.GetEntity(0);
                 if (cell.Get<Position>().transform.position == interactonData.CellPos && !cell.Has<TakenCell>())
                 {
                     Debug.Log("Spawn");
                     // Instantiate tree prefab
-                    var newTree = Object.Instantiate(spawnData.Get<TempCellObjectData>().TreePrefab,
-                        cell.Get<Position>().transform.position, Quaternion.identity);
+                    var newTree = Object.Instantiate(spawnData.Get<TempCellObjectData>().TreePrefab, cell.Get<Position>().transform.position, Quaternion.identity);
                     var isFullIcon = Object.Instantiate(_staticData.GoldSprite, _ui.mainScreen.transform);
                     var levelUpTitile = Object.Instantiate(_staticData.LevelUpTitle, _ui.mainScreen.transform);
                       
@@ -97,9 +91,8 @@ namespace Client.Scripts.ECS_Feature_rebuild.SpawnCellObject.System
                     tree.Get<CellObject>().level = 1;
                     tree.Get<CellObject>().lifeTimeLvlUpTitle = 2;
                     tree.Get<CellObject>().upgradePrice = 10;
-                    _ui.expUIParticleSystem.GetComponent<RectTransform>().anchoredPosition =
-                        WorldToScreenConvertor.WorldToCanvasSpace(_ui.mainCanvasRect, _sceneData.MainCamera,
-                            tree.Get<CellObject>().spawnPoint.position);
+                    
+                    _ui.expUIParticleSystem.GetComponent<RectTransform>().anchoredPosition = WorldToScreenConvertor.WorldToCanvasSpace(_ui.mainCanvasRect, _sceneData.MainCamera, tree.Get<CellObject>().spawnPoint.position);
                     _ui.expUIParticleSystem.Play();
                       
                     // Set resources data

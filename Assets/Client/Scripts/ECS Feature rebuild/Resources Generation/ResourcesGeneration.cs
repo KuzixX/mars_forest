@@ -9,7 +9,6 @@ namespace Client.Scripts.ECS_Feature_rebuild.Resources_Generation
 {
     internal class ResourcesGeneration : IEcsRunSystem, IEcsInitSystem
     {
-        private readonly MonoBehaviors.UI.UI _ui;
         private EcsWorld _world;
         private readonly StaticData _staticData;
         private readonly EcsFilter<CellObject>.Exclude<IsFull> _trees;
@@ -21,6 +20,10 @@ namespace Client.Scripts.ECS_Feature_rebuild.Resources_Generation
         public void Init()
         {
             _world.NewEntity().Get<InGameResources>();
+            ref var res = ref _resources.Get1(0);
+            res.gold = 1000;
+            res.diamonds = 1000;
+            res.experience = 1000;
         }
         public void Run()
         {
@@ -33,7 +36,6 @@ namespace Client.Scripts.ECS_Feature_rebuild.Resources_Generation
                 if (!_spawnTreeData.IsEmpty() && !_setTreeEvent.IsEmpty())
                 {
                     resources.experience += treeSpawnData.Get<TempCellObjectData>().ExpAmount;
-                    _ui.mainScreen.expAmountText.text = resources.experience.ToString();
                     treeSpawnData.Del<TempCellObjectData>();
                 }
 

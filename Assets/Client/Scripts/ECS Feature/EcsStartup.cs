@@ -1,5 +1,6 @@
 using Client.Scripts.Data;
 using Client.Scripts.ECS_Feature_rebuild.Camera_Control.System;
+using Client.Scripts.ECS_Feature_rebuild.ExtendLevel;
 using Client.Scripts.ECS_Feature_rebuild.Interaction_Feature.system;
 using Client.Scripts.ECS_Feature_rebuild.Quest_System.System;
 using Client.Scripts.ECS_Feature_rebuild.Resources_Generation;
@@ -81,7 +82,7 @@ namespace Client.Scripts.ECS_Feature
                 .Add(new PickGold()) //UI
             .Add(new ExperienceBar()) //UI
             .Add(new ParticleControl()) // UI
-            .Add(new ExtendLevel.ExtendLevel())
+            .Add(new ExtendLevel())
             .Add(new QuestSys()) // UI
             //-------------------------------------
             .Add(new CameraControl())

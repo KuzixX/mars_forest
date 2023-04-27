@@ -20,11 +20,18 @@ namespace Client.Scripts.ECS_Feature.Pick_Gold_System
         private readonly EcsFilter<EventEntityTag> _eventEntity;
         private readonly SceneData _sceneData;
 
+        public void Init()
+        {
+            _ui.mainScreen.pickGoldBtn.onClick.AddListener(() =>
+            {
+                ref var pickGold = ref _pickGold.Get1(0);
+                pickGold.CurrentCycleState += 0.5f;
+            });
+        }
         public void Run()
         {
             ref var pickGold = ref _pickGold.Get1(0);
             ref var resources = ref _resources.Get1(0);
-            ref var eventEntity = ref _eventEntity.GetEntity(0);
             if (!_trees.IsEmpty())
             {
                 // Pick gold automatic
@@ -45,29 +52,20 @@ namespace Client.Scripts.ECS_Feature.Pick_Gold_System
                             if (tree.Get<CellObject>().title == _staticData.TreesData[i].Title)
                             {
                                 resources.gold += tree.Get<CellObject>().level * _staticData.TreesData[i].AmountOfProduct / 2;
+                                
                                 _ui.goldUIParticleSystem.GetComponent<RectTransform>().anchoredPosition = WorldToScreenConvertor.WorldToCanvasSpace(_ui.mainCanvasRect, _sceneData.MainCamera, tree.Get<CellObject>().spawnPoint.position);
                                 _ui.goldUIParticleSystem.Play();
+                                
                                 tree.Del<IsFull>();
                                 // Quest events
                                 tree.Get<QuestEvent>().QuestType = "Gold";
                                 tree.Get<QuestEvent>().Value = resources.gold;
-                                eventEntity.Get<ChangeUI>().EventDescription = "ResBar";
-                                // _ui.mainScreen.goldAmountText.text = resources.gold.ToString();
                             }
                         }
                         pickGold.CurrentCycleState = 0;
                     }
                 }
             }
-        }
-
-        public void Init()
-        {
-            _ui.mainScreen.pickGoldBtn.onClick.AddListener(() =>
-            {
-                ref var pickGold = ref _pickGold.Get1(0);
-                pickGold.CurrentCycleState += 0.5f;
-            });
         }
     }
 }

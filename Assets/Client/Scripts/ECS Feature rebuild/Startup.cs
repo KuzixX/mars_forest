@@ -5,9 +5,8 @@ using Client.Scripts.ECS_Feature_rebuild.Projection_Systems;
 using Client.Scripts.ECS_Feature_rebuild.Quest_System.System;
 using Client.Scripts.ECS_Feature_rebuild.Resources_Generation;
 using Client.Scripts.ECS_Feature_rebuild.SpawnCellObject.System;
-using Client.Scripts.ECS_Feature.ExtendLevel;
 using Client.Scripts.ECS_Feature.Pick_Gold_System;
-using Client.Scripts.ECS.Components;
+using Client.Scripts.Interface;
 using Client.Scripts.MonoBehaviors;
 using Leopotam.Ecs;
 using Leopotam.Ecs.Ui.Systems;
@@ -32,7 +31,13 @@ namespace Client.Scripts.ECS_Feature_rebuild
         public SceneData sceneData;
         public InputControls InputControls;
         
-        [Inject] public IResourcesProtocol ResourcesProtocol;
+        private IResourcesProtocol _resourcesProtocol;
+
+        [Inject] 
+        private void Construct(IResourcesProtocol resourcesProtocol)
+        {
+            _resourcesProtocol = resourcesProtocol;
+        }
 
         private void Start()
         {
@@ -58,18 +63,18 @@ namespace Client.Scripts.ECS_Feature_rebuild
                 .Add(new SpawnCellObjects())
                 .Add(new ResourcesGeneration())
                 .Add(new PickGold())
-                .Add(new ExtendLevel())
+                .Add(new ExtendLevel.ExtendLevel())
                 .Add(new QuestSys())
                 .Add(new Robot.Robot())
                 .Add(new CameraControl())
                 .Add(new GameResourcesProjection())
-                .Inject(staticData)
+                .Inject(_resourcesProtocol)
                 .Inject(InputControls)
+                .InjectUi(uiEmitter)
+                .Inject(_sqlLiteDB)
+                .Inject(staticData)
                 .Inject(sceneData)
                 .Inject(ui)
-                .Inject(_sqlLiteDB)
-                .Inject(ResourcesProtocol)
-                .InjectUi(uiEmitter)
                 .Init();
         }
 
@@ -83,20 +88,6 @@ namespace Client.Scripts.ECS_Feature_rebuild
         {
             _systems?.Destroy();
             _world?.Destroy();
-        }
-    }
-
-
-    internal class DebugSystem : IEcsInitSystem
-    {
-        private readonly EcsFilter<InGameResources> _res;
-
-        public void Init()
-        {
-            ref var res = ref _res.Get1(0);
-            res.gold = 1000;
-            res.diamonds = 1000;
-            res.experience = 1000;
         }
     }
 }

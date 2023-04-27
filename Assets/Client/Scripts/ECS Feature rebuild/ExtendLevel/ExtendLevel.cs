@@ -1,10 +1,9 @@
 using Client.Scripts.Data;
 using Client.Scripts.ECS.Components;
-using ECS.Components.EventCoponents;
 using Leopotam.Ecs;
 using UnityEngine;
 
-namespace Client.Scripts.ECS_Feature.ExtendLevel
+namespace Client.Scripts.ECS_Feature_rebuild.ExtendLevel
 {
     sealed class ExtendLevel : IEcsRunSystem , IEcsInitSystem
     {

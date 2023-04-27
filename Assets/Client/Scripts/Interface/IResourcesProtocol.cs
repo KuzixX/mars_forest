@@ -1,9 +1,11 @@
-﻿namespace Client.Scripts.ECS_Feature_rebuild
+﻿using UniRx;
+
+namespace Client.Scripts.Interface
 {
     public interface IResourcesProtocol
     {
-        public int Gold { get; set; }
-        public int Experience { get; set; }
-        public int Diamonds { get; set; }
+        public ReactiveProperty<int> Gold { get; set; }
+        public ReactiveProperty<int> Experience { get; set; }
+        public ReactiveProperty<int> Diamonds { get; set; }
     }
 }

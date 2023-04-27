@@ -1,4 +1,5 @@
 ﻿using Client.Scripts.ECS_Feature_rebuild.Resources_Generation;
+using Client.Scripts.Interface;
 using Leopotam.Ecs;
 
 namespace Client.Scripts.ECS_Feature_rebuild.Projection_Systems
@@ -10,9 +11,9 @@ namespace Client.Scripts.ECS_Feature_rebuild.Projection_Systems
         public void Run()
         {
             ref var resources = ref _resources.Get1(0);
-            _resourcesProtocol.Gold = resources.gold;
-            _resourcesProtocol.Diamonds = resources.diamonds;
-            _resourcesProtocol.Experience = resources.gold;
+            _resourcesProtocol.Gold.Value = resources.gold;
+            _resourcesProtocol.Diamonds.Value = resources.diamonds;
+            _resourcesProtocol.Experience.Value = resources.experience;
         }
     }
 }
