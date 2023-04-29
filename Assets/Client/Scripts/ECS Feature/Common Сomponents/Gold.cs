@@ -1,4 +1,4 @@
-namespace Client.Scripts.ECS_Feature.Components
+namespace Client.Scripts.ECS_Feature.Common_Сomponents
 {
     public struct Gold
     {
