@@ -14,7 +14,7 @@ namespace Client.Scripts.ECS_Feature.SpawnCellObject.System
 {
     internal class CellObjectDataGenerator : IEcsRunSystem
     {
-        private Scripts.UI.UI _ui;
+        //private Scripts.UI.UI _ui;
         private EcsWorld _world;
         private readonly StaticData _staticData;
         private readonly EcsFilter<CameraTag> _mainCamera;
@@ -49,7 +49,7 @@ namespace Client.Scripts.ECS_Feature.SpawnCellObject.System
                         tempTreeData.Get<TempCellObjectData>().ExpAmount = _staticData.TreesData[i].AmountOfExperience;
                         tempTreeData.Get<TempCellObjectData>().Id = _staticData.TreesData[i].Id;
                         mainCamera.Del<Lock>();
-                        _ui.craftScreen.Show(false);
+                      //  _ui.craftScreen.Show(false);
                     }
                 }
             }

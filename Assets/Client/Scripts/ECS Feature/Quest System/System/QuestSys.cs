@@ -1,4 +1,4 @@
-using Client.Scripts.ECS_Feature.Quest_System.Component;
+  using Client.Scripts.ECS_Feature.Quest_System.Component;
 using Client.Scripts.ECS_Feature.Resources_Generation;
 using Client.Scripts.ECS_Feature.Resources_Generation.Component;
 using Client.Scripts.Models;

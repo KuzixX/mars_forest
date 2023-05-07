@@ -22,6 +22,7 @@ namespace Client.Scripts.ECS_Feature.Camera_Control.System
         
         public void Init()
         {
+            ETouch.EnhancedTouchSupport.Enable();
             var camera = _world.NewEntity();
             camera.Get<CameraTag>();
             camera.Get<CameraComponent>().ZoomSpeed = 0.01f;

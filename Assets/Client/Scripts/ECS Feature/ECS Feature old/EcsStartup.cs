@@ -7,8 +7,6 @@ using Client.Scripts.ECS_Feature.ECS_Feature_old.UI.System;
 using Client.Scripts.ECS_Feature.Interaction_Feature.system;
 using Client.Scripts.ECS_Feature.Pick_Gold_System.System;
 using Client.Scripts.ECS_Feature.Quest_System.System;
-using Client.Scripts.ECS_Feature.Resources_Generation.System;
-using Client.Scripts.ECS_Feature.SpawnCellObject.System;
 using Client.Scripts.Models;
 using Client.Scripts.Services;
 using Leopotam.Ecs;
@@ -60,29 +58,29 @@ namespace Client.Scripts.ECS_Feature.ECS_Feature_old
             _systems.ConvertScene().
                 // Resources systems 
                 OneFrame<OnExpEvent>()
-                .Add(new UiView()) //UI  Init
-                .Add(new Robot.System.Robot())
+                //.Add(new UiView()) //UI  Init
+                //.Add(new Robot.System.Robot())
                 .Add(new LoadGameProgress())
                 //-------------------------------------
-                .Add(new Input())
-                .Add(new Interaction())
+                //.Add(new Input())
+                //.Add(new Interaction())
                 .Add(new FreeZoneLighting())
                 .Add(new CellObjectLvlUp())
                 //-------------------------------------
                 //.Add(new CellObjectDataGenerator()) // Init
-                .Add(new SpawnCellObjects())
+               // .Add(new SpawnCellObjects())
                 //-------------------------------------
-                .Add(new ResourcesGeneration()) // UI
-                .Add(new PickGold()) //UI
+               // .Add(new ResourcesGeneration()) // UI
+               // .Add(new PickGold()) //UI
             //.Add(new Experience_Bar.System.ExperienceBar()) //UI
             //.Add(new ParticleControl()) // UI
             //.Add(new ExtendLevel())
             .Add(new QuestSys()) // UI
             //-------------------------------------
             .Add(new CameraControl())
-            .Add(new LockCamera())
+            //.Add(new LockCamera())
                 //-------------------------------------
-            .Add(new SetFullIcon())
+            .Add(new SetFloatIcon())
             .Add(new SetLvlUpTitle())
             //-------------------------------------
             .Add(new GameSaveProgress());

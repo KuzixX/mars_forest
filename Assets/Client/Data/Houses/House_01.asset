@@ -19,6 +19,6 @@ MonoBehaviour:
   prefab: {fileID: 6274404990057303477, guid: b86c5dfae649245418530bb261c0f759, type: 3}
   level: 0
   amountOfProduct: 20
-  amountOfExperience: 30
+  amountOfExperience: 150
   price: 150
   productionCycleTime: 2

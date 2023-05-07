@@ -1,6 +1,5 @@
 using Client.Scripts.ECS_Feature.Common_Сomponents;
 using Client.Scripts.ECS_Feature.Quest_System.Component;
-using Client.Scripts.ECS_Feature.Resources_Generation;
 using Client.Scripts.ECS_Feature.Resources_Generation.Component;
 using Client.Scripts.Services;
 using Leopotam.Ecs;

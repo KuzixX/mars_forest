@@ -13,45 +13,45 @@ namespace Client.Scripts.ECS_Feature.Resources_Generation.System
     {
         private EcsWorld _world;
         private readonly StaticData _staticData;
-        private readonly EcsFilter<CellObject>.Exclude<IsFull> _trees;
-        private readonly EcsFilter<GameState> _resources;
+        private readonly EcsFilter<CellObject>.Exclude<IsFull> _cellObjects;
         private readonly EcsFilter<TempCellObjectData> _spawnTreeData;
         private readonly EcsFilter<OnSetTreeEvent> _setTreeEvent;
-        private readonly SceneData _sceneData;
 
         public void Init()
         {
             _world.NewEntity().Get<GameState>();
-            ref var res = ref _resources.Get1(0);
-            res.gold = 1000;
-            res.diamonds = 1000;
-            res.experience = 1000;
+            var gameStateEvent00 = _world.NewEntity();
+            gameStateEvent00.Get<GameStateChange>().EventType = GameStateEvents.GoldAdd;
+            gameStateEvent00.Get<GameStateChange>().Value = 1500;
+            var gameStateEvent01 = _world.NewEntity();
+            gameStateEvent01.Get<GameStateChange>().EventType = GameStateEvents.ExperienceAdd;
+            gameStateEvent01.Get<GameStateChange>().Value = 1500;
+            var gameStateEvent03 = _world.NewEntity();
+            gameStateEvent03.Get<GameStateChange>().EventType = GameStateEvents.DiamondsAdd;
+            gameStateEvent03.Get<GameStateChange>().Value = 1500;
         }
         public void Run()
         {
-            foreach (var index in _trees)
+            foreach (var index in _cellObjects)
             {
-                ref var tree = ref _trees.GetEntity(index);
-                ref var resources = ref _resources.Get1(0);
+                ref var cell = ref _cellObjects.GetEntity(index);
                 ref var treeSpawnData = ref _spawnTreeData.GetEntity(0);
 
                 if (!_spawnTreeData.IsEmpty() && !_setTreeEvent.IsEmpty())
                 {
-                    resources.experience += treeSpawnData.Get<TempCellObjectData>().ExpAmount;
+                    var stateEvent = _world.NewEntity();
+                    stateEvent.Get<GameStateChange>().EventType = GameStateEvents.ExperienceAdd;
+                    stateEvent.Get<GameStateChange>().Value = treeSpawnData.Get<TempCellObjectData>().ExpAmount;
                     treeSpawnData.Del<TempCellObjectData>();
                 }
 
-                for (int i = 0; i < _staticData.TreesData.Length; i++)
+                foreach (var t in _staticData.TreesData)
                 {
-                    if (_staticData.TreesData[i].Title == tree.Get<CellObject>().title)
-                    {
-                        tree.Get<CellObject>().currentCycleState -= Time.deltaTime;
-                        if (tree.Get<CellObject>().currentCycleState <= 0)
-                        {
-                            tree.Get<CellObject>().currentCycleState = _staticData.TreesData[i].ProductionCycleTime;
-                            tree.Get<IsFull>();
-                        }
-                    }
+                    if (t.Title != cell.Get<CellObject>().title) continue;
+                    cell.Get<CellObject>().currentCycleState -= Time.deltaTime;
+                    if (!(cell.Get<CellObject>().currentCycleState <= 0)) continue;
+                    cell.Get<CellObject>().currentCycleState = t.ProductionCycleTime;
+                    cell.Get<IsFull>();
                 }
             }
         }

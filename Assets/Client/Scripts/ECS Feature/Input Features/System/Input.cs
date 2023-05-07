@@ -7,11 +7,12 @@ namespace Client.Scripts.ECS_Feature.Input_Features.System
     sealed class Input : IEcsRunSystem, IEcsInitSystem
     {
         private EcsWorld _world;
-        private InputControls _inputControls;
+        private readonly InputControls _inputControls = new();
         private readonly EcsFilter<InputComponent> _input;
         public void Init()
         {
             _world.NewEntity().Get<InputComponent>();
+            _inputControls.Enable();
         }
 
         public void Run()

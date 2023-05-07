@@ -1,6 +1,6 @@
 using Client.Scripts.ECS_Feature.Common_Сomponents;
 using Client.Scripts.ECS_Feature.ECS_Feature_old.EventCoponents;
-using Client.Scripts.ECS_Feature.ExtendLevel;
+using Client.Scripts.ECS_Feature.ExtendLvl;
 using Client.Scripts.ECS_Feature.Resources_Generation.Component;
 using Client.Scripts.Services;
 using Leopotam.Ecs;

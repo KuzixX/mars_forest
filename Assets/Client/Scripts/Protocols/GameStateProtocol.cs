@@ -10,6 +10,7 @@ namespace Client.Scripts.Protocols
         public ReactiveProperty<int> Diamonds { get; set; }
         public ReactiveProperty<int> CellObjectsCount { get; set; }
         public ReactiveProperty<int> GameLevel { get; set; }
+        public ReactiveProperty<string> ViewXp { get; set; }
 
         GameStateProtocol()
         {
@@ -18,6 +19,7 @@ namespace Client.Scripts.Protocols
             Diamonds = new ReactiveProperty<int>();
             CellObjectsCount = new ReactiveProperty<int>();
             GameLevel = new ReactiveProperty<int>();
+            ViewXp = new ReactiveProperty<string>();
         }
     }
 }
