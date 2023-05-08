@@ -3,7 +3,6 @@ using Client.Scripts.ECS_Feature.Common_Сomponents;
 using Client.Scripts.ECS_Feature.Common_Сomponents.Tags;
 using Client.Scripts.ECS_Feature.ECS_Feature_old.EventCoponents;
 using Client.Scripts.ECS_Feature.ECS_Feature_old.UI.Component;
-using Client.Scripts.ECS_Feature.Experience_Bar.System;
 using Client.Scripts.ECS_Feature.Interaction_Feature.Component;
 using Client.Scripts.ECS_Feature.Resources_Generation.Component;
 using Client.Scripts.ECS_Feature.SpawnCellObject.Component;
@@ -38,7 +37,7 @@ namespace Client.Scripts.ECS_Feature.SpawnCellObject.System
                 ref var resources = ref _resources.Get1(0);
                 ref var position = ref _interaction.Get1(0);
                 ref var mainCamera = ref _mainCamera.GetEntity(0);
-                ref var interactonData = ref _interaction.Get1(0);
+                ref var interactionData = ref _interaction.Get1(0);
                 ref var tempTreeData = ref _tempSpawnData.GetEntity(0);
 
                 for (int i = 0; i < _staticData.TreesData.Length; i++)
@@ -66,7 +65,7 @@ namespace Client.Scripts.ECS_Feature.SpawnCellObject.System
                 ref var cell = ref _cells.GetEntity(index);
 
                 ref var spawnData = ref _tempSpawnData.GetEntity(0);
-                if (cell.Get<Position>().transform.position == interactonData.CellPos && !cell.Has<TakenCell>())
+                if (cell.Get<Position>().transform.position == interactionData.CellPos && !cell.Has<TakenCell>())
                 {
                     Debug.Log("Spawn");
                     // Instantiate tree prefab
@@ -83,6 +82,8 @@ namespace Client.Scripts.ECS_Feature.SpawnCellObject.System
                     tree.Get<CellObject>().currentCycleState = spawnData.Get<TempCellObjectData>().ProductionCycleTime;
                     tree.Get<Position>().transform = newTree.transform;
                     tree.Get<CellObject>().isFullIcon = isFullIcon;
+                    tree.Get<CellObject>().expAmount = tempTreeData.Get<TempCellObjectData>().ExpAmount;
+                    tree.Get<CellObject>().isExpGot = false;
                     tree.Get<CellObject>().levelUpTitle = levelUpTitle;
                     tree.Get<CellObject>().isSelected = newTree.transform.GetChild(1).gameObject;
                     tree.Get<CellObject>().spawnPoint = newTree.transform.GetChild(2).gameObject.transform;
@@ -91,11 +92,7 @@ namespace Client.Scripts.ECS_Feature.SpawnCellObject.System
                     tree.Get<CellObject>().level = 1;
                     tree.Get<CellObject>().lifeTimeLvlUpTitle = 2;
                     tree.Get<CellObject>().upgradePrice = 10;
-                    
-                    var stateEvent = _world.NewEntity();
-                    stateEvent.Get<GameStateChange>().EventType = GameStateEvents.ExperienceAdd;
-                    stateEvent.Get<GameStateChange>().Value = spawnData.Get<TempCellObjectData>().ExpAmount;
-                    
+
                     var stateEvent01 = _world.NewEntity();
                     stateEvent01.Get<GameStateChange>().EventType = GameStateEvents.GoldSubtract;
                     stateEvent01.Get<GameStateChange>().Value = spawnData.Get<TempCellObjectData>().Price;

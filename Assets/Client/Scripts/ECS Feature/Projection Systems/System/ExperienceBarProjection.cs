@@ -28,12 +28,12 @@ namespace Client.Scripts.ECS_Feature.Projection_Systems.System
                     ref var experienceBar = ref _filter.Get1(0);
                     
                     _experienceBarProtocol.CurrentLevel.Value = experienceBar.CurrentLevel;
-                    _experienceBarProtocol.CurrentXp.Value = experienceBar.CurrentXp;
                     _experienceBarProtocol.FillPercent.Value = experienceBar.FillPercent;
                     _experienceBarProtocol.MaxLevel.Value = experienceBar.MaxLevel;
                     _experienceBarProtocol.TargetXp.Value = experienceBar.TargetXp;
                     _experienceBarProtocol.ViewXp= experienceBar.ViewXp;
-                    Debug.Log("ExpBar projected");
+                    _experienceBarProtocol.CurrentXp.Value = experienceBar.CurrentXp;
+                    Debug.Log($"ExpBar projected{experienceBar.CurrentXp}");
                 }
             }
         }

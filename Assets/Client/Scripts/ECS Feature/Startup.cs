@@ -37,6 +37,7 @@ namespace Client.Scripts.ECS_Feature
 
         [Inject] private IGameStateProtocol _gameStateProtocol;
         [Inject] private IExperienceBarProtocol _experienceBarProtocol;
+        [Inject] private IUiButtonsProtocol _uiButtonsProtocol;
 
         private void Start()
         {
@@ -57,7 +58,7 @@ namespace Client.Scripts.ECS_Feature
                 //-------------------------------------
                 .Add(new SpawnCellObjects())
                 .Add(new ResourcesGeneration())
-                .Add(new PickGold())
+                .Add(new PickGold(_uiButtonsProtocol))
                 //-------------------------------------
                 .Add(new ExtendLevel())
                 .Add(new HomeRobot())

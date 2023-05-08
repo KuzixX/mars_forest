@@ -15,12 +15,10 @@ namespace Client.Scripts.ECS_Feature.Experience_Bar.System
 
         public void Init()
         {
-            _world.NewEntity().Get<ExperienceBarComponent>();
-            ref var experienceBar = ref _expBarComponent.Get1(0);
-            experienceBar.MaxLevel = 100;
-            experienceBar.CurrentLevel = 0;
-            experienceBar.CurrentXp = 0;
-            experienceBar.TargetXp = ExperienceCalculator.CalculateXp(experienceBar.MaxLevel);
+            var experienceBar = _world.NewEntity();
+            experienceBar.Get<ExperienceBarComponent>().MaxLevel = 100;
+            experienceBar.Get<ExperienceBarComponent>().CurrentLevel = 0;
+            experienceBar.Get<ExperienceBarComponent>().TargetXp = ExperienceCalculator.CalculateXp(experienceBar.Get<ExperienceBarComponent>().MaxLevel);
         }
         public void Run()
         {
@@ -36,16 +34,20 @@ namespace Client.Scripts.ECS_Feature.Experience_Bar.System
 
                     if (expBar.CurrentXp != 0)
                     {
+                        Debug.Log("Exp changed bar");
                         expBar.FillPercent = expBar.CurrentXp / expBar.TargetXp[expBar.CurrentLevel];
                         expBar.ViewXp = $"{expBar.CurrentXp} / {expBar.TargetXp[expBar.CurrentLevel]}";
                     }   
                 }
 
-                if (!(expBar.CurrentXp >= expBar.TargetXp[expBar.CurrentLevel])) continue;
-                expBar.CurrentLevel += 1;
-                expBar.CurrentXp = 0;
-                expBar.TargetXp[expBar.CurrentLevel] = expBar.TargetXp[expBar.CurrentLevel + 1];
-
+                if (expBar.CurrentXp >= expBar.TargetXp[expBar.CurrentLevel])
+                {
+                    expBar.CurrentLevel += 1;
+                    expBar.TargetXp[expBar.CurrentLevel] = expBar.TargetXp[expBar.CurrentLevel + 1];
+                    expBar.CurrentXp = 0;
+                    expBar.FillPercent = expBar.CurrentXp / expBar.TargetXp[expBar.CurrentLevel];
+                    expBar.ViewXp = $"{expBar.CurrentXp} / {expBar.TargetXp[expBar.CurrentLevel]}";
+                }
             }
         }
     }

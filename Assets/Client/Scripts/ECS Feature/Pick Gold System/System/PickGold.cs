@@ -4,6 +4,7 @@ using Client.Scripts.ECS_Feature.ECS_Feature_old.UI.Component;
 using Client.Scripts.ECS_Feature.Pick_Gold_System.Component;
 using Client.Scripts.ECS_Feature.Resources_Generation.Component;
 using Client.Scripts.Models;
+using Client.Scripts.Protocols.Interfaces;
 using Client.Scripts.Services;
 using Leopotam.Ecs;
 using UnityEngine;
@@ -20,6 +21,12 @@ namespace Client.Scripts.ECS_Feature.Pick_Gold_System.System
         private readonly EcsFilter<GameState> _gameState;
         private readonly EcsFilter<EventEntityTag> _eventEntity;
         private readonly SceneData _sceneData;
+        private IUiButtonsProtocol _uiButtonsProtocol;
+
+        public PickGold(IUiButtonsProtocol uiUIButtonsProtocol)
+        {
+            _uiButtonsProtocol = uiUIButtonsProtocol;
+        }
 
         public void Init()
         {
@@ -32,7 +39,6 @@ namespace Client.Scripts.ECS_Feature.Pick_Gold_System.System
         public void Run()
         {
             ref var pickGold = ref _pickGold.Get1(0);
-            ref var resources = ref _gameState.Get1(0);
             if (!_trees.IsEmpty())
             {
                 // Pick gold automatic

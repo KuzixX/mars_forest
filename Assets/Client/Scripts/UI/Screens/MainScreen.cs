@@ -1,3 +1,4 @@
+using System;
 using Client.Scripts.Protocols.Interface;
 using Client.Scripts.Protocols.Interfaces;
 using Client.Scripts.Services;
@@ -36,7 +37,7 @@ namespace Client.Scripts.UI.Screens
         
         [Inject] public IGameStateProtocol GameStateProtocol;
         [Inject] public IExperienceBarProtocol ExperienceBarProtocol;
-        
+        [Inject] public IUiButtonsProtocol UiButtonsProtocol;
 
         private void Start()
         {
@@ -46,9 +47,8 @@ namespace Client.Scripts.UI.Screens
             ShowScreen(ui.questScreen, questBtn, ui.questScreen.backButton);
             ShowScreen(ui.shopScreen, shopBtn, ui.shopScreen.backButton);
             ShowScreen(ui.screenshotScreen, takePictureBtn, ui.screenshotScreen.backBtn);
-        }
-        
-    private void ShowScreen(Screen screen, Button showButton, Button hideButton)
+        } 
+        private void ShowScreen(Screen screen, Button showButton, Button hideButton)
     {
         showButton.onClick.AddListener(() =>
         {
@@ -59,41 +59,49 @@ namespace Client.Scripts.UI.Screens
             screen.Show(false);
         });
     }
-    private void UpdateUI()
-    {
-        // Update UI
-        GameStateProtocol.Gold.Subscribe(_ =>
+        private void UpdateUI()
         {
-            goldAmountText.text = CurrencyConvertor.CurrencyToString(GameStateProtocol.Gold.Value);
-        }).AddTo(_disposable);
-        GameStateProtocol.Experience.Subscribe(_ =>
-        {
-            expAmountText.text = CurrencyConvertor.CurrencyToString(GameStateProtocol.Experience.Value);
+            // Update UI
+            GameStateProtocol.Gold.Subscribe(_ =>
+            {
+                goldAmountText.text = CurrencyConvertor.CurrencyToString(GameStateProtocol.Gold.Value);
+            }).AddTo(_disposable);
+            GameStateProtocol.Experience.Subscribe(_ =>
+            {
+                expAmountText.text = CurrencyConvertor.CurrencyToString(GameStateProtocol.Experience.Value);
 
-        }).AddTo(_disposable);
-        GameStateProtocol.Diamonds.Subscribe(_ =>
-        {
-            diamondsAmountText.text = CurrencyConvertor.CurrencyToString(GameStateProtocol.Diamonds.Value);
+            }).AddTo(_disposable);
+            GameStateProtocol.Diamonds.Subscribe(_ =>
+            {
+                diamondsAmountText.text = CurrencyConvertor.CurrencyToString(GameStateProtocol.Diamonds.Value);
                 
-        }).AddTo(_disposable);
-        GameStateProtocol.CellObjectsCount.Subscribe(_ =>
+            }).AddTo(_disposable);
+            GameStateProtocol.CellObjectsCount.Subscribe(_ =>
+            {
+                cellObjectsAmountText.text = GameStateProtocol.CellObjectsCount.Value.ToString();
+            }).AddTo(_disposable);
+            GameStateProtocol.GameLevel.Subscribe(_ =>
+            {
+                gameLevelText.text = GameStateProtocol.GameLevel.Value.ToString();
+            }).AddTo(_disposable);
+            ExperienceBarProtocol.CurrentLevel.Subscribe(_ =>
+            {
+                gameLevelText.text = ExperienceBarProtocol.CurrentLevel.Value.ToString();
+            }).AddTo(_disposable);
+            ExperienceBarProtocol.CurrentXp.Subscribe(_ =>
+            {
+                Debug.Log("Exp Ui changed bar");
+                expFillImage.fillAmount = ExperienceBarProtocol.FillPercent.Value;
+                expBarAmountText.text = ExperienceBarProtocol.ViewXp;
+            }).AddTo(_disposable);
+        }
+
+        private void ButtonsListener()
         {
-            cellObjectsAmountText.text = GameStateProtocol.CellObjectsCount.Value.ToString();
-        }).AddTo(_disposable);
-        GameStateProtocol.GameLevel.Subscribe(_ =>
-        {
-            gameLevelText.text = GameStateProtocol.GameLevel.Value.ToString();
-        }).AddTo(_disposable);
-        ExperienceBarProtocol.CurrentLevel.Subscribe(_ =>
-        {
-            gameLevelText.text = ExperienceBarProtocol.CurrentLevel.Value.ToString();
-        }).AddTo(_disposable);
-        ExperienceBarProtocol.CurrentXp.Subscribe(_ =>
-        {
-            expFillImage.fillAmount = ExperienceBarProtocol.FillPercent.Value;
-            expBarAmountText.text = ExperienceBarProtocol.ViewXp;
-        }).AddTo(_disposable);
-    }
-    
+            pickGoldBtn.onClick.AddListener(() =>
+            {
+                UiButtonsProtocol.PickGoldBtn = true;
+            });
+        }
     }
 }

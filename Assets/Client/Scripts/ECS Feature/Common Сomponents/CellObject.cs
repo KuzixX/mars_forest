@@ -11,8 +11,10 @@ namespace Client.Scripts.ECS_Feature.Common_Сomponents
         public float lvlTitleOffset;
         public float lifeTimeLvlUpTitle;
         public GameObject treePrefab;
+        public int expAmount;
         public float currentCycleState;
         public GameObject isFullIcon;
+        public bool isExpGot;
         public GameObject levelUpTitle;
         public RectTransform levelUpTitleRectPos;
         public RectTransform isFullIconRectPos;
