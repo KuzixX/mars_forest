@@ -1,4 +1,3 @@
-using System;
 using Client.Scripts.Protocols.Interface;
 using Client.Scripts.Protocols.Interfaces;
 using Client.Scripts.Services;
@@ -90,12 +89,10 @@ namespace Client.Scripts.UI.Screens
             }).AddTo(_disposable);
             ExperienceBarProtocol.CurrentXp.Subscribe(_ =>
             {
-                Debug.Log("Exp Ui changed bar");
                 expFillImage.fillAmount = ExperienceBarProtocol.FillPercent.Value;
                 expBarAmountText.text = ExperienceBarProtocol.ViewXp;
             }).AddTo(_disposable);
         }
-
         private void ButtonsListener()
         {
             pickGoldBtn.onClick.AddListener(() =>

@@ -1,4 +1,4 @@
-namespace Client.Scripts.ECS_Feature.ExtendLvl
+namespace Client.Scripts.ECS_Feature.ExtendLvl.Components
 {
     internal struct ExtendLevelComponent
     {

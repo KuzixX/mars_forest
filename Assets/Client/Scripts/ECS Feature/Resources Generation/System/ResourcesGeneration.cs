@@ -18,13 +18,13 @@ namespace Client.Scripts.ECS_Feature.Resources_Generation.System
             _world.NewEntity().Get<GameState>();
             var gameStateEvent00 = _world.NewEntity();
             gameStateEvent00.Get<GameStateChange>().EventType = GameStateEvents.GoldAdd;
-            gameStateEvent00.Get<GameStateChange>().Value = 1000;
+            gameStateEvent00.Get<GameStateChange>().Value = 10000;
             var gameStateEvent01 = _world.NewEntity();
             gameStateEvent01.Get<GameStateChange>().EventType = GameStateEvents.ExperienceAdd;
-            gameStateEvent01.Get<GameStateChange>().Value = 1000;
+            gameStateEvent01.Get<GameStateChange>().Value = 10000;
             var gameStateEvent03 = _world.NewEntity();
             gameStateEvent03.Get<GameStateChange>().EventType = GameStateEvents.DiamondsAdd;
-            gameStateEvent03.Get<GameStateChange>().Value = 1000;
+            gameStateEvent03.Get<GameStateChange>().Value = 10000;
         }
         public void Run()
         {

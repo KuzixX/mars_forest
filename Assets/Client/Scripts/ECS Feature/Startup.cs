@@ -2,6 +2,7 @@ using Client.Scripts.ECS_Feature.Camera_Control.System;
 using Client.Scripts.ECS_Feature.ClearSystem.Systems;
 using Client.Scripts.ECS_Feature.Experience_Bar.System;
 using Client.Scripts.ECS_Feature.ExtendLvl;
+using Client.Scripts.ECS_Feature.ExtendLvl.Systems;
 using Client.Scripts.ECS_Feature.Interaction_Feature.system;
 using Client.Scripts.ECS_Feature.Pick_Gold_System.System;
 using Client.Scripts.ECS_Feature.Projection_Systems.System;
@@ -55,16 +56,14 @@ namespace Client.Scripts.ECS_Feature
                 .Add(new DebugSystem())
                 .Add(new Input())
                 .Add(new Interaction())
-                //-------------------------------------
                 .Add(new SpawnCellObjects())
+                .Add(new ExtendLevel())
                 .Add(new ResourcesGeneration())
                 .Add(new PickGold(_uiButtonsProtocol))
-                //-------------------------------------
                 .Add(new ExtendLevel())
                 .Add(new HomeRobot())
                 .Add(new CameraControl())
                 .Add(new WorldToCanvasSpace())
-                //-----------------------------------------------------------
                 .Add(new UpdateGameState())
                 .Add(new ExperienceBar())
                 .Add(new GameStateProjection(_gameStateProtocol))

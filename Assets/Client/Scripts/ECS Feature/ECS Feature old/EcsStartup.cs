@@ -1,11 +1,8 @@
 using Client.Scripts.ECS_Feature.Camera_Control.System;
 using Client.Scripts.ECS_Feature.ECS_Feature_old.CellObjectLevelUp;
 using Client.Scripts.ECS_Feature.ECS_Feature_old.EventCoponents;
-using Client.Scripts.ECS_Feature.ECS_Feature_old.Lighting_Free_Zone;
 using Client.Scripts.ECS_Feature.ECS_Feature_old.Save_Load_Game_Progress;
 using Client.Scripts.ECS_Feature.ECS_Feature_old.UI.System;
-using Client.Scripts.ECS_Feature.Interaction_Feature.system;
-using Client.Scripts.ECS_Feature.Pick_Gold_System.System;
 using Client.Scripts.ECS_Feature.Quest_System.System;
 using Client.Scripts.Models;
 using Client.Scripts.Services;
@@ -14,7 +11,6 @@ using Leopotam.Ecs.Ui.Systems;
 using UnityEngine;
 using Voody.UniLeo;
 using ETouch = UnityEngine.InputSystem.EnhancedTouch;
-using Input = Client.Scripts.ECS_Feature.Input_Features.System.Input;
 
 namespace Client.Scripts.ECS_Feature.ECS_Feature_old
 {
@@ -64,7 +60,6 @@ namespace Client.Scripts.ECS_Feature.ECS_Feature_old
                 //-------------------------------------
                 //.Add(new Input())
                 //.Add(new Interaction())
-                .Add(new FreeZoneLighting())
                 .Add(new CellObjectLvlUp())
                 //-------------------------------------
                 //.Add(new CellObjectDataGenerator()) // Init

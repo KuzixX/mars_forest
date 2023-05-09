@@ -4,6 +4,7 @@ using Client.Scripts.ECS_Feature.Common_Сomponents.Tags;
 using Client.Scripts.ECS_Feature.ECS_Feature_old.EventCoponents;
 using Client.Scripts.ECS_Feature.ECS_Feature_old.UI.Component;
 using Client.Scripts.ECS_Feature.ExtendLvl;
+using Client.Scripts.ECS_Feature.ExtendLvl.Components;
 using Client.Scripts.ECS_Feature.Resources_Generation.Component;
 using Client.Scripts.Models;
 using Client.Scripts.Services;

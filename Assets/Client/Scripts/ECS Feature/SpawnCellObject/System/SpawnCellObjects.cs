@@ -29,83 +29,100 @@ namespace Client.Scripts.ECS_Feature.SpawnCellObject.System
         private readonly EcsFilter<InteractionData> _interaction;
         private readonly EcsFilter<CellObject> _trees;
         private readonly EcsFilter<EventEntityTag> _eventEntity;
+        private readonly EcsFilter<OnSetTreeEvent> _setTreeEvent;
 
         public void Run()
         {
-            if (_clickEvents.IsEmpty()) return;
-            ref var clickData = ref _clickEvents.Get1(0);
+            if (!_clickEvents.IsEmpty())
+            {
+                ref var clickData = ref _clickEvents.Get1(0);
                 ref var resources = ref _resources.Get1(0);
                 ref var position = ref _interaction.Get1(0);
                 ref var mainCamera = ref _mainCamera.GetEntity(0);
-                ref var interactionData = ref _interaction.Get1(0);
-                ref var tempTreeData = ref _tempSpawnData.GetEntity(0);
 
-                for (int i = 0; i < _staticData.TreesData.Length; i++)
+                foreach (var t in _staticData.TreesData)
                 {
-                    if (clickData.WidgetName == _staticData.TreesData[i].Title &
-                        resources.gold >= _staticData.TreesData[i].Price)
-                    {
-                        _world.NewEntity().Get<TempCellObjectData>();
-                        position.CellPos = Vector3.zero;
-                        tempTreeData.Get<TempCellObjectData>().Price = _staticData.TreesData[i].Price;
-                        tempTreeData.Get<TempCellObjectData>().TreePrefab = _staticData.TreesData[i].Prefab;
-                        tempTreeData.Get<TempCellObjectData>().TreeName = _staticData.TreesData[i].Title;
-                        tempTreeData.Get<TempCellObjectData>().ProductionCycleTime = _staticData.TreesData[i].ProductionCycleTime;
-                        tempTreeData.Get<TempCellObjectData>().ExpAmount = _staticData.TreesData[i].AmountOfExperience;
-                        tempTreeData.Get<TempCellObjectData>().Id = _staticData.TreesData[i].Id;
-                        mainCamera.Del<Lock>();
-                        _ui.craftScreen.Show(false);
-                    }
+                    if (!(clickData.WidgetName == t.Title & resources.gold >= t.Price)) continue;
+                    if(!_tempSpawnData.IsEmpty()) return;
+                    var tempCellData = _world.NewEntity();
+                    position.CellPos = Vector3.zero;
+                    tempCellData.Get<TempCellObjectData>().Price = t.Price;
+                    tempCellData.Get<TempCellObjectData>().TreePrefab = t.Prefab;
+                    tempCellData.Get<TempCellObjectData>().TreeName = t.Title;
+                    tempCellData.Get<TempCellObjectData>().ProductionCycleTime = t.ProductionCycleTime;
+                    tempCellData.Get<TempCellObjectData>().ExpAmount = t.AmountOfExperience;
+                    tempCellData.Get<TempCellObjectData>().Id = t.Id;
+                    mainCamera.Del<Lock>();
+                    _ui.craftScreen.Show(false);
+                }
             }
-
-
-
+            
             foreach (var index in _cells)
             {
                 ref var cell = ref _cells.GetEntity(index);
 
-                ref var spawnData = ref _tempSpawnData.GetEntity(0);
-                if (cell.Get<Position>().transform.position == interactionData.CellPos && !cell.Has<TakenCell>())
+                foreach (var t in _staticData.TreesData)
                 {
-                    Debug.Log("Spawn");
-                    // Instantiate tree prefab
-                    var newTree = Object.Instantiate(spawnData.Get<TempCellObjectData>().TreePrefab, cell.Get<Position>().transform.position, Quaternion.identity);
-                    var isFullIcon = Object.Instantiate(_staticData.GoldSprite, _ui.mainScreen.transform);
-                    var levelUpTitle = Object.Instantiate(_staticData.LevelUpTitle, _ui.mainScreen.transform);
+                    if (!cell.Has<TakenCell>() && !_tempSpawnData.IsEmpty())
+                    {
+                        cell.Get<Cell>().lightingCell.SetActive(true);
+                    }
+                    else if (!_setTreeEvent.IsEmpty())
+                    {
+                        cell.Get<Cell>().lightingCell.SetActive(false);
+                    }
+                }
+            }
+            
+            foreach (var index in _cells)
+            {
+                ref var cell = ref _cells.GetEntity(index);
+                ref var interactionData = ref _interaction.Get1(0);
+                ref var tempTreeData = ref _tempSpawnData.GetEntity(0);
+
+                if ( _tempSpawnData.IsEmpty() || cell.Get<Position>().transform.position != interactionData.CellPos || cell.Has<TakenCell>()) continue;
+                
+                ref var spawnData = ref _tempSpawnData.GetEntity(0);
+                
+                // Instantiate tree prefab
+                var newCellObject = Object.Instantiate(spawnData.Get<TempCellObjectData>().TreePrefab, cell.Get<Position>().transform.position, Quaternion.identity);
+                var isFullIconObject = Object.Instantiate(_staticData.GoldSprite, _ui.mainScreen.transform);
+                var levelUpTitleObject = Object.Instantiate(_staticData.LevelUpTitle, _ui.mainScreen.transform);
+                
+                // Create  tree entity
+                var tree = _world.NewEntity();
+                tree.Get<CellObject>().treePrefab = newCellObject;
+                tree.Get<CellObject>().id = _trees.GetEntitiesCount();
+                tree.Get<CellObject>().title = spawnData.Get<TempCellObjectData>().TreeName;
+                tree.Get<CellObject>().currentCycleState = spawnData.Get<TempCellObjectData>().ProductionCycleTime;
+                tree.Get<CellObject>().isFullIcon = isFullIconObject;
+                tree.Get<CellObject>().expAmount = tempTreeData.Get<TempCellObjectData>().ExpAmount;
+                tree.Get<CellObject>().isExpGot = false;
+                tree.Get<CellObject>().levelUpTitle = levelUpTitleObject;
+                tree.Get<CellObject>().isSelected = newCellObject.transform.GetChild(1).gameObject;
+                tree.Get<CellObject>().spawnPoint = newCellObject.transform.GetChild(2).gameObject.transform;
+                tree.Get<CellObject>().levelUpTitleRectPos = levelUpTitleObject.GetComponent<RectTransform>();
+                tree.Get<CellObject>().isFullIconRectPos = isFullIconObject.GetComponent<RectTransform>();
+                tree.Get<CellObject>().level = 1;
+                tree.Get<CellObject>().lifeTimeLvlUpTitle = 2;
+                tree.Get<CellObject>().upgradePrice = 10;
+                tree.Get<Position>().transform = newCellObject.transform;
+                tree.Get<OnSetTreeEvent>().TypeOfTree = spawnData.Get<TempCellObjectData>().TreeName;
+
+                // Game state event
+                var stateEvent01 = _world.NewEntity();
+                stateEvent01.Get<GameStateChange>().EventType = GameStateEvents.GoldSubtract;
+                stateEvent01.Get<GameStateChange>().Value = spawnData.Get<TempCellObjectData>().Price;
+
+                // Update UI. Should be removed from here
+                _ui.expUIParticleSystem.GetComponent<RectTransform>().anchoredPosition = WorldToScreenConvertor.WorldToCanvasSpace(_ui.mainCanvasRect, _sceneData.MainCamera, tree.Get<CellObject>().spawnPoint.position);
+                _ui.expUIParticleSystem.Play();
+
+                // Take cell
+                cell.Get<TakenCell>();
                       
-                    // Create  tree entity
-                    var tree = _world.NewEntity();
-                    tree.Get<CellObject>().treePrefab = newTree;
-                    tree.Get<CellObject>().id = _trees.GetEntitiesCount();
-                    tree.Get<OnSetTreeEvent>().TypeOfTree = spawnData.Get<TempCellObjectData>().TreeName;
-                    tree.Get<CellObject>().title = spawnData.Get<TempCellObjectData>().TreeName;
-                    tree.Get<CellObject>().currentCycleState = spawnData.Get<TempCellObjectData>().ProductionCycleTime;
-                    tree.Get<Position>().transform = newTree.transform;
-                    tree.Get<CellObject>().isFullIcon = isFullIcon;
-                    tree.Get<CellObject>().expAmount = tempTreeData.Get<TempCellObjectData>().ExpAmount;
-                    tree.Get<CellObject>().isExpGot = false;
-                    tree.Get<CellObject>().levelUpTitle = levelUpTitle;
-                    tree.Get<CellObject>().isSelected = newTree.transform.GetChild(1).gameObject;
-                    tree.Get<CellObject>().spawnPoint = newTree.transform.GetChild(2).gameObject.transform;
-                    tree.Get<CellObject>().levelUpTitleRectPos = levelUpTitle.GetComponent<RectTransform>();
-                    tree.Get<CellObject>().isFullIconRectPos = isFullIcon.GetComponent<RectTransform>();
-                    tree.Get<CellObject>().level = 1;
-                    tree.Get<CellObject>().lifeTimeLvlUpTitle = 2;
-                    tree.Get<CellObject>().upgradePrice = 10;
-
-                    var stateEvent01 = _world.NewEntity();
-                    stateEvent01.Get<GameStateChange>().EventType = GameStateEvents.GoldSubtract;
-                    stateEvent01.Get<GameStateChange>().Value = spawnData.Get<TempCellObjectData>().Price;
-
-                    _ui.expUIParticleSystem.GetComponent<RectTransform>().anchoredPosition = WorldToScreenConvertor.WorldToCanvasSpace(_ui.mainCanvasRect, _sceneData.MainCamera, tree.Get<CellObject>().spawnPoint.position);
-                    _ui.expUIParticleSystem.Play();
-
-                    // Take cell
-                    cell.Get<TakenCell>();
-                      
-                    // Delete temp data
-                    spawnData.Del<TempCellObjectData>();
-                }  
+                // Delete temp data
+                spawnData.Del<TempCellObjectData>();
             }
         }
     }

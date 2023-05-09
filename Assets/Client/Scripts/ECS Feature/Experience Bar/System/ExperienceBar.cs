@@ -40,14 +40,12 @@ namespace Client.Scripts.ECS_Feature.Experience_Bar.System
                     }   
                 }
 
-                if (expBar.CurrentXp >= expBar.TargetXp[expBar.CurrentLevel])
-                {
-                    expBar.CurrentLevel += 1;
-                    expBar.TargetXp[expBar.CurrentLevel] = expBar.TargetXp[expBar.CurrentLevel + 1];
-                    expBar.CurrentXp = 0;
-                    expBar.FillPercent = expBar.CurrentXp / expBar.TargetXp[expBar.CurrentLevel];
-                    expBar.ViewXp = $"{expBar.CurrentXp} / {expBar.TargetXp[expBar.CurrentLevel]}";
-                }
+                if (!(expBar.CurrentXp >= expBar.TargetXp[expBar.CurrentLevel])) continue;
+                expBar.CurrentLevel += 1;
+                expBar.TargetXp[expBar.CurrentLevel] = expBar.TargetXp[expBar.CurrentLevel + 1];
+                expBar.CurrentXp -= (int)expBar.TargetXp[expBar.CurrentLevel - 1];
+                expBar.FillPercent = expBar.CurrentXp / expBar.TargetXp[expBar.CurrentLevel];
+                expBar.ViewXp = $"{expBar.CurrentXp} / {expBar.TargetXp[expBar.CurrentLevel]}";
             }
         }
     }
