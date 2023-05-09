@@ -2,7 +2,6 @@ using Client.Scripts.ECS_Feature.Common_Сomponents;
 using Client.Scripts.ECS_Feature.ExtendLvl.Components;
 using Client.Scripts.Models;
 using Leopotam.Ecs;
-using UnityEngine;
 
 namespace Client.Scripts.ECS_Feature.ExtendLvl.Systems
 {
@@ -23,12 +22,11 @@ namespace Client.Scripts.ECS_Feature.ExtendLvl.Systems
         public void Run()
         {
             ref var currentLevel = ref _filter.Get1(0);
-
             var amountOfTile = _cellFilter.GetEntitiesCount();
             var amountOfTree = _treeFilter.GetEntitiesCount();
 
+            if (currentLevel.CurrentLevel == _sceneData.Tilemaps.Length) return;
             if (amountOfTile - 1 > amountOfTree) return;
-            Debug.Log("Extended");
             _sceneData.Tilemaps[currentLevel.CurrentLevel].SetActive(true);
             currentLevel.CurrentLevel++;
         }

@@ -1,7 +1,5 @@
 using Client.Scripts.ECS_Feature.Camera_Control.System;
-using Client.Scripts.ECS_Feature.ECS_Feature_old.CellObjectLevelUp;
 using Client.Scripts.ECS_Feature.ECS_Feature_old.EventCoponents;
-using Client.Scripts.ECS_Feature.ECS_Feature_old.Save_Load_Game_Progress;
 using Client.Scripts.ECS_Feature.ECS_Feature_old.UI.System;
 using Client.Scripts.ECS_Feature.Quest_System.System;
 using Client.Scripts.Models;
@@ -51,16 +49,16 @@ namespace Client.Scripts.ECS_Feature.ECS_Feature_old
 
         private void AddSystems()
         {
-            _systems.ConvertScene().
+           // _systems.ConvertScene().
                 // Resources systems 
-                OneFrame<OnExpEvent>()
+                //OneFrame<OnExpEvent>()
                 //.Add(new UiView()) //UI  Init
                 //.Add(new Robot.System.Robot())
-                .Add(new LoadGameProgress())
+                //.Add(new LoadGameProgress())
                 //-------------------------------------
                 //.Add(new Input())
                 //.Add(new Interaction())
-                .Add(new CellObjectLvlUp())
+                //.Add(new CellObjectLvlUp())
                 //-------------------------------------
                 //.Add(new CellObjectDataGenerator()) // Init
                // .Add(new SpawnCellObjects())
@@ -70,15 +68,15 @@ namespace Client.Scripts.ECS_Feature.ECS_Feature_old
             //.Add(new Experience_Bar.System.ExperienceBar()) //UI
             //.Add(new ParticleControl()) // UI
             //.Add(new ExtendLevel())
-            .Add(new QuestSys()) // UI
+            //.Add(new QuestSys()) // UI
             //-------------------------------------
-            .Add(new CameraControl())
+            //.Add(new CameraControl())
             //.Add(new LockCamera())
                 //-------------------------------------
-            .Add(new SetFloatIcon())
-            .Add(new SetLvlUpTitle())
+            //.Add(new SetFloatIcon())
+            //.Add(new SetLvlUpTitle())
             //-------------------------------------
-            .Add(new GameSaveProgress());
+            //.Add(new GameSaveProgress());
             // .Add(new UpdateServerData());
         }
         

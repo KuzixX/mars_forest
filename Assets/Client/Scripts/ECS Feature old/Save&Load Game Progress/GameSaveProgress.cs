@@ -1,4 +1,4 @@
-using Client.Scripts.ECS_Feature.Common_Сomponents;
+/*using Client.Scripts.ECS_Feature.Common_Сomponents;
 using Client.Scripts.ECS_Feature.ECS_Feature_old.EventCoponents;
 using Client.Scripts.ECS_Feature.ExtendLvl;
 using Client.Scripts.ECS_Feature.ExtendLvl.Components;
@@ -58,4 +58,4 @@ namespace Client.Scripts.ECS_Feature.ECS_Feature_old.Save_Load_Game_Progress
             }
         }
     }
-}
+}*/
