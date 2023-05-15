@@ -23,18 +23,15 @@ namespace Client.Scripts.ECS_Feature.Projection_Systems.System
             {
                 ref var gameStateEvent = ref _gameState.Get1(idx);
 
-                if (gameStateEvent.EventType == GameStateEvents.ExperienceAdd)
-                {
-                    ref var experienceBar = ref _filter.Get1(0);
+                if (gameStateEvent.EventType != GameStateEvents.ExperienceAdd) continue;
+                ref var experienceBar = ref _filter.Get1(0);
                     
-                    _experienceBarProtocol.CurrentLevel.Value = experienceBar.CurrentLevel;
-                    _experienceBarProtocol.FillPercent.Value = experienceBar.FillPercent;
-                    _experienceBarProtocol.MaxLevel.Value = experienceBar.MaxLevel;
-                    _experienceBarProtocol.TargetXp.Value = experienceBar.TargetXp;
-                    _experienceBarProtocol.ViewXp= experienceBar.ViewXp;
-                    _experienceBarProtocol.CurrentXp.Value = experienceBar.CurrentXp;
-                    Debug.Log($"ExpBar projected{experienceBar.CurrentXp}");
-                }
+                _experienceBarProtocol.CurrentLevel.Value = experienceBar.CurrentLevel;
+                _experienceBarProtocol.FillPercent.Value = experienceBar.FillPercent;
+                _experienceBarProtocol.MaxLevel.Value = experienceBar.MaxLevel;
+                _experienceBarProtocol.TargetXp.Value = experienceBar.TargetXp;
+                _experienceBarProtocol.ViewXp= experienceBar.ViewXp;
+                _experienceBarProtocol.CurrentXp.Value = experienceBar.CurrentXp;
             }
         }
     }

@@ -1,35 +1,37 @@
 ﻿using Client.Scripts.ECS_Feature.Common_Сomponents;
 using Client.Scripts.ECS_Feature.Common_Сomponents.Tags;
 using Client.Scripts.Models;
+using Client.Scripts.Protocols;
 using Client.Scripts.Services;
 using Leopotam.Ecs;
+using UnityEngine;
 
 namespace Client.Scripts.ECS_Feature.WTCSpace.System
 {
     internal class WorldToCanvasSpace : IEcsRunSystem
     {
         private readonly EcsFilter<CellObject, IsFull> _fullCellObject;
-        private readonly EcsFilter<CellObject>.Exclude<IsFull> _tree;
-        private StaticData _staticData;
+        private readonly EcsFilter<CellObject>.Exclude<IsFull> _cellObjects;
+        private FX _fx;
         private SceneData _sceneData;
-        private Scripts.UI.UI _ui;
 
         public void Run()
         {
             foreach (var index in _fullCellObject)
             {
-                ref var fullTree = ref _fullCellObject.GetEntity(index);
-  
-                fullTree.Get<CellObject>().isFullIcon.gameObject.SetActive(true);
-                fullTree.Get<CellObject>().isFullIconRectPos.anchoredPosition =
-                    WorldToScreenConvertor.WorldToCanvasSpace(_ui.mainCanvasRect, 
-                        _sceneData.MainCamera, fullTree.Get<CellObject>().spawnPoint.position);
+                ref var fullCellObject = ref _fullCellObject.GetEntity(index);
+                var anchoredPosition = WorldToScreenConvertor.WorldToCanvasSpace(_sceneData.MainCanvasRect,
+                    _sceneData.MainCamera, fullCellObject.Get<CellObject>().spawnPoint.position);
+
+                fullCellObject.Get<CellObject>().isFullIcon.gameObject.SetActive(true);
+                fullCellObject.Get<CellObject>().isFullIcon.GetComponent<RectTransform>().anchoredPosition = anchoredPosition;
+                _fx.goldParticleSystem.GetComponent<RectTransform>().anchoredPosition = anchoredPosition;
             }
 
-            foreach (var index in _tree)
+            foreach (var index in _cellObjects)
             {
-                ref var tree = ref _tree.GetEntity(index);
-                tree.Get<CellObject>().isFullIcon.gameObject.SetActive(false);
+                ref var cellObject = ref _cellObjects.GetEntity(index);
+                cellObject.Get<CellObject>().isFullIcon.gameObject.SetActive(false);
             }
         }
     }

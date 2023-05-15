@@ -25,8 +25,7 @@ namespace Client.Scripts.ECS_Feature.ExtendLvl.Systems
             var amountOfTile = _cellFilter.GetEntitiesCount();
             var amountOfTree = _treeFilter.GetEntitiesCount();
 
-            if (currentLevel.CurrentLevel == _sceneData.Tilemaps.Length) return;
-            if (amountOfTile - 1 > amountOfTree) return;
+            if (currentLevel.CurrentLevel == _sceneData.Tilemaps.Length || amountOfTile - 1 > amountOfTree) return;
             _sceneData.Tilemaps[currentLevel.CurrentLevel].SetActive(true);
             currentLevel.CurrentLevel++;
         }

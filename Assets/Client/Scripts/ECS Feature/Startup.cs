@@ -1,4 +1,5 @@
 using Client.Scripts.ECS_Feature.Camera_Control.System;
+using Client.Scripts.ECS_Feature.CellObjectLevelUp;
 using Client.Scripts.ECS_Feature.ClearSystem.Systems;
 using Client.Scripts.ECS_Feature.Experience_Bar.System;
 using Client.Scripts.ECS_Feature.ExtendLvl;
@@ -12,7 +13,7 @@ using Client.Scripts.ECS_Feature.SpawnCellObject.System;
 using Client.Scripts.ECS_Feature.UpdGameState.Systems;
 using Client.Scripts.ECS_Feature.WTCSpace.System;
 using Client.Scripts.Models;
-using Client.Scripts.Protocols.Interface;
+using Client.Scripts.Protocols;
 using Client.Scripts.Protocols.Interfaces;
 using Client.Scripts.Services;
 using Leopotam.Ecs;
@@ -35,6 +36,7 @@ namespace Client.Scripts.ECS_Feature
         public Scripts.UI.UI ui;
         public StaticData staticData;
         public SceneData sceneData;
+        public FX fx;
 
         [Inject] private IGameStateProtocol _gameStateProtocol;
         [Inject] private IExperienceBarProtocol _experienceBarProtocol;
@@ -57,9 +59,10 @@ namespace Client.Scripts.ECS_Feature
                 .Add(new Input())
                 .Add(new Interaction())
                 .Add(new SpawnCellObjects())
+                .Add(new CellObjectLvlUp())
                 .Add(new ExtendLevel())
                 .Add(new ResourcesGeneration())
-                .Add(new PickGold(_uiButtonsProtocol))
+                .Add(new PickResources(_uiButtonsProtocol))
                 .Add(new ExtendLevel())
                 .Add(new HomeRobot())
                 .Add(new CameraControl())
@@ -74,6 +77,7 @@ namespace Client.Scripts.ECS_Feature
                 .Inject(staticData)
                 .Inject(sceneData)
                 .Inject(ui)
+                .Inject(fx)
                 .Init();
         }
 

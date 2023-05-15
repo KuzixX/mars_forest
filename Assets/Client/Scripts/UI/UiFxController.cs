@@ -15,23 +15,18 @@ namespace Client.Scripts.UI
             RemoveParticles(ui.expUIParticleSystem, sceneData.ForceFieldsExp);
         }
 
-        private void RemoveParticles(ParticleSystem particlesSys, ParticleSystemForceField forceField)
+        private static void RemoveParticles(ParticleSystem particlesSys, ParticleSystemForceField forceField)
         {
-            if (particlesSys.particleCount > 0)
+            if (particlesSys.particleCount <= 0) return;
+            var particles = new ParticleSystem.Particle[particlesSys.main.maxParticles];
+            var numParticlesAlive = particlesSys.GetParticles(particles);
+            for (var i = 0; i < numParticlesAlive; i++)
             {
-              var particles = new ParticleSystem.Particle[particlesSys.main.maxParticles];
-                var numParticlesAlive = particlesSys.GetParticles(particles);
-                         for (int i = 0; i < numParticlesAlive; i++)
-                         {
-                             if (Vector3.Distance(forceField.transform.position,
-                                     particles[i].position) < 0.1)
-                             {
-                                 particles[i].remainingLifetime = 0f;
-                                 particlesSys.SetParticles(particles);
-                             }
-                         }  
+                if (!(Vector3.Distance(forceField.transform.position,
+                        particles[i].position) < 0.1)) continue;
+                particles[i].remainingLifetime = 0f;
+                particlesSys.SetParticles(particles);
             }
-            
         }
     }
 }

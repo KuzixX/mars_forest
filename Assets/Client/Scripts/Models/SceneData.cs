@@ -11,6 +11,7 @@ namespace Client.Scripts.Models
         [SerializeField] private ParticleSystemForceField forceFieldsGold;
         [SerializeField] private ParticleSystemForceField forceFieldsExp;
         [SerializeField] private ParticleSystemForceField forceFieldsDiamonds;
+        [SerializeField] private RectTransform mainCanvasRect;
         public ParticleSystemForceField ForceFieldsDiamonds => forceFieldsDiamonds;
         public ParticleSystemForceField ForceFieldsExp => forceFieldsExp;
         public ParticleSystemForceField ForceFieldsGold => forceFieldsGold;
@@ -18,5 +19,6 @@ namespace Client.Scripts.Models
         public Camera MainCamera => mainCamera;
         public GameObject[] Tilemaps => tileMaps;
         public Camera UiCamera => uiCamera;
+        public RectTransform MainCanvasRect => mainCanvasRect;
     }
 }

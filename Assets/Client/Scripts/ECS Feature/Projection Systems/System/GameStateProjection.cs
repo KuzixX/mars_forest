@@ -1,7 +1,7 @@
 ﻿using Client.Scripts.ECS_Feature.Common_Сomponents;
 using Client.Scripts.ECS_Feature.Resources_Generation.Component;
 using Client.Scripts.Models;
-using Client.Scripts.Protocols.Interface;
+using Client.Scripts.Protocols.Interfaces;
 using Leopotam.Ecs;
 using UnityEngine;
 

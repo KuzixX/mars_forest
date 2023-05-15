@@ -1,4 +1,3 @@
-using Client.Scripts.Protocols.Interface;
 using Client.Scripts.Protocols.Interfaces;
 using Client.Scripts.Services;
 using TMPro;

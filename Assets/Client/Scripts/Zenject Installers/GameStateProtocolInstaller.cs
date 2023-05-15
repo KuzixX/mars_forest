@@ -1,5 +1,5 @@
 using Client.Scripts.Protocols;
-using Client.Scripts.Protocols.Interface;
+using Client.Scripts.Protocols.Interfaces;
 using Zenject;
 
 namespace Client.Scripts.Zenject_Installers

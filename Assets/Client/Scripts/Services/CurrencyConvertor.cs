@@ -2,7 +2,7 @@ namespace Client.Scripts.Services
 {
     public class CurrencyConvertor
     {
-        public static string CurrencyToString(float valueToConvert)
+        public static string CurrencyToString(double valueToConvert)
         {
             if (valueToConvert >= 1000000f) // millions
             {

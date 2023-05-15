@@ -1,5 +1,4 @@
-﻿using Client.Scripts.Protocols.Interface;
-using Client.Scripts.Protocols.Interfaces;
+﻿using Client.Scripts.Protocols.Interfaces;
 using UniRx;
 
 namespace Client.Scripts.Protocols
