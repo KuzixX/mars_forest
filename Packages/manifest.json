@@ -1,10 +1,5 @@
 {
   "dependencies": {
-    "com.google.android.appbundle": "file:C:/Users/KuziX/Downloads/com.google.android.appbundle-1.8.0.tgz",
-    "com.google.external-dependency-manager": "file:C:/Users/KuziX/Downloads/com.google.external-dependency-manager-1.2.174.tgz",
-    "com.google.firebase.app": "file:C:/Users/KuziX/Downloads/com.google.firebase.app-10.0.1.tgz",
-    "com.google.firebase.auth": "file:C:/Users/KuziX/Downloads/com.google.firebase.auth-10.0.1.tgz",
-    "com.google.firebase.firestore": "file:C:/Users/KuziX/Downloads/com.google.firebase.firestore-10.0.1.tgz",
     "com.leopotam.ecs": "https://github.com/Leopotam/ecs.git",
     "com.leopotam.ecs-ui": "https://github.com/Leopotam/ecs-ui.git",
     "com.leopotam.ecs-unityintegration": "https://github.com/Leopotam/ecs-unityintegration.git",

@@ -40,7 +40,7 @@ namespace Client.Scripts.UI
                 newUiITemElement.image.sprite = staticData.TreesData[i].Image;
                 newUiITemElement.title.text = staticData.TreesData[i].Title;
                 newUiITemElement.description.text = staticData.TreesData[i].Description;
-                newUiITemElement.clickAction.WidgetName = staticData.TreesData[i].Title;
+                //newUiITemElement.clickAction.WidgetName = staticData.TreesData[i].Title;
             }
         }
         private void SwitchMenu()

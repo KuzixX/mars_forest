@@ -1,10 +1,8 @@
-  using Client.Scripts.ECS_Feature.Quest_System.Component;
-using Client.Scripts.ECS_Feature.Resources_Generation;
+using Client.Scripts.ECS_Feature.Quest_System.Component;
 using Client.Scripts.ECS_Feature.Resources_Generation.Component;
 using Client.Scripts.Models;
 using Client.Scripts.Models.UI_Models;
 using Client.Scripts.Services;
-using Client.Scripts.UI;
 using Leopotam.Ecs;
 using Leopotam.Ecs.Ui.Components;
 using UnityEngine;
@@ -29,7 +27,7 @@ namespace Client.Scripts.ECS_Feature.Quest_System.System
                 // Instantiate UI prefab
                 var newQuestElement = Object.Instantiate(_staticData.UiQuestElement, _ui.questScreen.itemContainer.transform);
                 newQuestElement.title.text = _staticData.Quest[i].Title;
-                newQuestElement.clickAction.WidgetName = _staticData.Quest[i].Title;
+                //newQuestElement.clickAction.WidgetName = _staticData.Quest[i].Title;
                 newQuestElement.particleSystem.externalForces.AddInfluence(_sceneData.ForceFieldsDiamonds);
                 
                 _ui.questScreen.questItmes.Add(newQuestElement.gameObject);

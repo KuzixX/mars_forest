@@ -27,7 +27,7 @@ namespace Client.Scripts.Services
             return Path.Combine(Application.streamingAssetsPath, FileName);
 #endif
 #if UNITY_STANDALONE
-            string filePath = Path.Combine(Application.dataPath, fileName);
+            string filePath = Path.Combine(Application.dataPath, FileName);
             if(!File.Exists(filePath)) UnpackDatabase(filePath);
             return filePath;
 #endif
