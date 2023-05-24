@@ -2660,7 +2660,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ui: {fileID: 1413479001}
-  sceneData: {fileID: 1522788858}
+  forceFieldsGold: {fileID: 0}
+  forceFieldsDiamonds: {fileID: 0}
+  forceFieldsExp: {fileID: 0}
 --- !u!1 &216915938
 GameObject:
   m_ObjectHideFlags: 0

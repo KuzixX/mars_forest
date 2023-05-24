@@ -6,14 +6,9 @@ namespace Client.Scripts.UI
     public class UiFxController : MonoBehaviour
     {
         [SerializeField] private UI ui;
-        [SerializeField] private SceneData sceneData;
-
-        private void Update()
-        {
-            RemoveParticles(ui.goldUIParticleSystem, sceneData.ForceFieldsGold);
-            RemoveParticles(ui.diamondsUIParticleSystem, sceneData.ForceFieldsDiamonds);
-            RemoveParticles(ui.expUIParticleSystem, sceneData.ForceFieldsExp);
-        }
+        [SerializeField] private ParticleSystemForceField forceFieldsGold;
+        [SerializeField] private ParticleSystemForceField forceFieldsDiamonds;
+        [SerializeField] private ParticleSystemForceField forceFieldsExp;
 
         private static void RemoveParticles(ParticleSystem particlesSys, ParticleSystemForceField forceField)
         {

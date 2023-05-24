@@ -1,5 +1,4 @@
 using Client.Scripts.Protocols.Interfaces;
-using Client.Scripts.Services;
 using TMPro;
 using UniRx;
 using UnityEngine;
