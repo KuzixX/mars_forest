@@ -20,34 +20,34 @@ namespace Client.Scripts.ECS_Feature.UpdGameState.Systems
 
                 switch (gameStateEventData.EventType)
                 {
-                    case GameStateEvents.GoldAdd:
+                    case Events.GoldAdd:
                         gameStateData.gold += gameStateEventData.Value;
                         Debug.Log("GoldAdd");
                         break;
-                    case GameStateEvents.GoldSubtract:
+                    case Events.GoldSubtract:
                         gameStateData.gold -= gameStateEventData.Value;
                         Debug.Log("GoldSubtract");
                         break;
                     // Experience cases
-                    case GameStateEvents.ExperienceAdd:
+                    case Events.ExperienceAdd:
                         gameStateData.experience += gameStateEventData.Value;
                         Debug.Log("ExperienceAdd");
                         break;
-                    case GameStateEvents.ExperienceSubtract:
+                    case Events.ExperienceSubtract:
                         gameStateData.experience -= gameStateEventData.Value;
                         Debug.Log("ExperienceSubtract");
                         break;
                     // Diamonds cases
-                    case GameStateEvents.DiamondsAdd:
+                    case Events.DiamondsAdd:
                         gameStateData.diamonds += gameStateEventData.Value;
                         Debug.Log("DiamondsAdd");
                         break;
-                    case GameStateEvents.DiamondsSubtract:
+                    case Events.DiamondsSubtract:
                         gameStateData.diamonds -= gameStateEventData.Value;
                         Debug.Log("DiamondsSubtract");
                         break;
                     // Cell objects cases
-                    case GameStateEvents.CellObjectAdd:
+                    case Events.CellObjectAdd:
                         gameStateData.cellObjectAmount += gameStateEventData.Value;
                         break;
                 }

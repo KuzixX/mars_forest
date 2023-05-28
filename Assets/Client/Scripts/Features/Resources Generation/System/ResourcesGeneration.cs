@@ -17,13 +17,13 @@ namespace Client.Scripts.ECS_Feature.Resources_Generation.System
         {
             _world.NewEntity().Get<GameState>();
             var gameStateEvent00 = _world.NewEntity();
-            gameStateEvent00.Get<GameStateChange>().EventType = GameStateEvents.GoldAdd;
+            gameStateEvent00.Get<GameStateChange>().EventType = Events.GoldAdd;
             gameStateEvent00.Get<GameStateChange>().Value = 10000;
             var gameStateEvent01 = _world.NewEntity();
-            gameStateEvent01.Get<GameStateChange>().EventType = GameStateEvents.ExperienceAdd;
+            gameStateEvent01.Get<GameStateChange>().EventType = Events.ExperienceAdd;
             gameStateEvent01.Get<GameStateChange>().Value = 10000;
             var gameStateEvent03 = _world.NewEntity();
-            gameStateEvent03.Get<GameStateChange>().EventType = GameStateEvents.DiamondsAdd;
+            gameStateEvent03.Get<GameStateChange>().EventType = Events.DiamondsAdd;
             gameStateEvent03.Get<GameStateChange>().Value = 10000;
         }
         public void Run()
@@ -37,7 +37,7 @@ namespace Client.Scripts.ECS_Feature.Resources_Generation.System
                     if (!cell.Get<CellObject>().isExpGot && t.Title == cell.Get<CellObject>().title)
                     {
                         var stateEvent = _world.NewEntity();
-                        stateEvent.Get<GameStateChange>().EventType = GameStateEvents.ExperienceAdd;
+                        stateEvent.Get<GameStateChange>().EventType = Events.ExperienceAdd;
                         stateEvent.Get<GameStateChange>().Value = cell.Get<CellObject>().expAmount;
                         cell.Get<CellObject>().isExpGot = true;
                     }

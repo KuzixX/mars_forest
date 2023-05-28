@@ -18,7 +18,7 @@ namespace Client.Scripts.ECS_Feature.SpawnCellObject.System
 {
     internal class SpawnCellObjects : IEcsRunSystem
     {
-        private Scripts.UI.UI _ui;
+        //private Scripts.UI.UI _ui;
         private FX _fx;
         private EcsWorld _world;
         private readonly SceneData _sceneData;
@@ -54,7 +54,7 @@ namespace Client.Scripts.ECS_Feature.SpawnCellObject.System
                     tempCellData.Get<TempCellObjectData>().ExpAmount = t.AmountOfExperience;
                     tempCellData.Get<TempCellObjectData>().Id = t.Id;
                     mainCamera.Del<Lock>();
-                    _ui.craftScreen.Show(false);
+                    //_ui.craftScreen.Show(false);
                 }
 
             // Light free zone
@@ -113,12 +113,12 @@ namespace Client.Scripts.ECS_Feature.SpawnCellObject.System
 
                 // Game state event Gold
                 var stateEvent01 = _world.NewEntity();
-                stateEvent01.Get<GameStateChange>().EventType = GameStateEvents.GoldSubtract;
+                stateEvent01.Get<GameStateChange>().EventType = Events.GoldSubtract;
                 stateEvent01.Get<GameStateChange>().Value = tempSpawnData.Get<TempCellObjectData>().Price;
 
                 // Game state event CellObject
                 var stateEvent02 = _world.NewEntity();
-                stateEvent02.Get<GameStateChange>().EventType = GameStateEvents.CellObjectAdd;
+                stateEvent02.Get<GameStateChange>().EventType = Events.CellObjectAdd;
                 stateEvent02.Get<GameStateChange>().Value = 1;
 
                 // Update UI. Should be removed from here

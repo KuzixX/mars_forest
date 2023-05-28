@@ -5,7 +5,6 @@ namespace Client.Scripts.UI
 {
     public class UiFxController : MonoBehaviour
     {
-        [SerializeField] private UI ui;
         [SerializeField] private ParticleSystemForceField forceFieldsGold;
         [SerializeField] private ParticleSystemForceField forceFieldsDiamonds;
         [SerializeField] private ParticleSystemForceField forceFieldsExp;

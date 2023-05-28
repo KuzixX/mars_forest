@@ -1,4 +1,6 @@
-﻿namespace Client.Scripts.ECS_Feature
+﻿using Client.Scripts.Models;
+
+namespace Client.Scripts.Commands.interfaces
 {
     interface ICommand
     {

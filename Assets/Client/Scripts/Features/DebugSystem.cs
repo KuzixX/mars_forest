@@ -1,7 +1,8 @@
-﻿using Leopotam.Ecs;
+﻿using Client.Scripts.Features.Common_Сomponents;
+using Leopotam.Ecs;
 using UnityEngine;
 
-namespace Client.Scripts.ECS_Feature
+namespace Client.Scripts.Features
 {
     internal class DebugSystem : IEcsRunSystem
     {

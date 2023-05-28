@@ -21,4 +21,4 @@ MonoBehaviour:
   amountOfProduct: 10
   amountOfExperience: 500
   price: 100
-  productionCycleTime: 2
+  productionCycleTime: 0.8

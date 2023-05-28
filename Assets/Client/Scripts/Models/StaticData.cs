@@ -37,8 +37,8 @@ namespace Client.Scripts.Models
         [Header("UI")] 
         [SerializeField] private GameObject levelUpTitle;
         public GameObject LevelUpTitle => levelUpTitle;
-        [SerializeField] private CraftItem uiItemElement;
-        public CraftItem UiItemElement => uiItemElement;
+        [SerializeField] private GameObject uiItemElement;
+        public GameObject UiItemElement => uiItemElement;
         [SerializeField] private GameObject goldSprite;
         public GameObject GoldSprite => goldSprite;
         [SerializeField] private QuestItem uiQuestElement;

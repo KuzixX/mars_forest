@@ -106,7 +106,7 @@
 //                     _ui.questScreen.questItmes[index].GetComponent<QuestItem>().particleSystem.Play();
 //                     clickData.Del<EcsUiClickEvent>();
 //                     _ui.diamondsUIParticleSystem.GetComponent<RectTransform>().anchoredPosition = WorldToScreenConvertor.WorldToCanvasSpace(_ui.mainCanvasRect, _sceneData.UiCamera, quest.ParticleSpawnPoint.position);
-//                                             _ui.diamondsUIParticleSystem.Play();
+//                     _ui.diamondsUIParticleSystem.Play();
 //                     if (quest.QuestDoneCount <= 0)
 //                     {
 //                         quest.IsDone = false;

@@ -1,4 +1,3 @@
-using System;
 using Client.Scripts.Protocols.Interfaces;
 using Client.Scripts.Services;
 using TMPro;
@@ -10,7 +9,7 @@ namespace Client.Scripts.UI
 {
     public class Gold : MonoBehaviour
     {
-        [Inject] private IGameStateProtocol _gold;
+        [Inject] private IGoldProtocol _gold;
         private TextMeshProUGUI _view;
         private CompositeDisposable _disposable = new();
 

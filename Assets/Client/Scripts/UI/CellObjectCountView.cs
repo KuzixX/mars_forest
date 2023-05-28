@@ -8,7 +8,7 @@ namespace Client.Scripts.UI
 {
     public class CellObjectCountView : MonoBehaviour
     {
-        [Inject] private IGameStateProtocol _cellObjectsCount;
+        [Inject] private ICellObjectCountProtocol _cellObjectsCount;
         private TextMeshProUGUI _view;
         private CompositeDisposable _disposable = new();
 

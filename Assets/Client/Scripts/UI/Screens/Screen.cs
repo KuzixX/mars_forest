@@ -1,7 +1,6 @@
-using System;
 using UnityEngine;
 
-namespace Client.Scripts.UI
+namespace Client.Scripts.UI.Screens
 {
     public abstract class Screen : MonoBehaviour
     {

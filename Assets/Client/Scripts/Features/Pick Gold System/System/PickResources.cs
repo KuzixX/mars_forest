@@ -15,7 +15,7 @@ namespace Client.Scripts.ECS_Feature.Pick_Gold_System.System
 {
     internal class PickResources : IEcsRunSystem, IEcsInitSystem
     {
-        private Scripts.UI.UI _ui;
+        //private Scripts.UI.UI _ui;
         private FX _fx;
         private EcsWorld _world;
         private StaticData _staticData;
@@ -55,7 +55,7 @@ namespace Client.Scripts.ECS_Feature.Pick_Gold_System.System
                     var anchoredPosition = WorldToScreenConvertor.WorldToCanvasSpace(_sceneData.MainCanvasRect,
                         _sceneData.MainCamera, tree.Get<CellObject>().spawnPoint.position);
                     var stateEvent = _world.NewEntity();
-                    stateEvent.Get<GameStateChange>().EventType = GameStateEvents.GoldAdd;
+                    stateEvent.Get<GameStateChange>().EventType = Events.GoldAdd;
                     stateEvent.Get<GameStateChange>().Value = tree.Get<CellObject>().level * t.AmountOfProduct / 2;
                     tree.Get<CellObject>().isFullIcon.GetComponent<RectTransform>().anchoredPosition = anchoredPosition;
                     _fx.goldParticleSystem.GetComponent<ParticleSystem>().Play();

@@ -9,14 +9,14 @@ namespace Client.Scripts.UI
 {
     internal class Experience : MonoBehaviour
     {
-        [Inject] private IGameStateProtocol _experience;
+        [Inject] private IExperienceProtocol _experience;
         private TextMeshProUGUI _view;
         private CompositeDisposable _disposable = new();
 
         private void Start()
         {
             _view = gameObject.GetComponent<TextMeshProUGUI>();
-            _experience.Gold.Subscribe(_ =>
+            _experience.Experience.Subscribe(_ =>
             {
                 _view.text = CurrencyConvertor.CurrencyToString(_experience.Experience.Value);
             }).AddTo(_disposable);

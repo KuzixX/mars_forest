@@ -46,7 +46,7 @@ MonoBehaviour:
   target: {fileID: 6089271012037176295, guid: 96dcf23c826b86e4cbafc078e83c87a8, type: 3}
   defaultCamPos: {fileID: 3243503612803608257, guid: 0d595c415bcd24a4ba759a796d7095b0, type: 3}
   levelUpTitle: {fileID: 6341657126784850256, guid: f462a7d1c0c89b54780e099e79d30760, type: 3}
-  uiItemElement: {fileID: 815435150694758878, guid: 6c97d9c8a9283d842a0f78a13056c8d7, type: 3}
+  uiItemElement: {fileID: 4679757391526957075, guid: 6c97d9c8a9283d842a0f78a13056c8d7, type: 3}
   goldSprite: {fileID: 5619403006187035283, guid: 977a71309e132f54ba9500f97391bbab, type: 3}
   uiQuestElement: {fileID: 219090374459084602, guid: 4cab2f374dd8eb64685a804d192288e0, type: 3}
   uiShopElement: {fileID: 6112776759471561565, guid: cf1d1ca77606af3469f3bd91319c4c85, type: 3}

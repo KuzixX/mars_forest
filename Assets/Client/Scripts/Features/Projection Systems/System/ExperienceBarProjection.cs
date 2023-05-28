@@ -3,9 +3,8 @@ using Client.Scripts.ECS_Feature.Experience_Bar.Component;
 using Client.Scripts.Models;
 using Client.Scripts.Protocols.Interfaces;
 using Leopotam.Ecs;
-using UnityEngine;
 
-namespace Client.Scripts.ECS_Feature.Projection_Systems.System
+namespace Client.Scripts.Features.Projection_Systems.System
 {
     internal class ExperienceBarProjection : IEcsRunSystem
     {
@@ -23,7 +22,7 @@ namespace Client.Scripts.ECS_Feature.Projection_Systems.System
             {
                 ref var gameStateEvent = ref _gameState.Get1(idx);
 
-                if (gameStateEvent.EventType != GameStateEvents.ExperienceAdd) continue;
+                if (gameStateEvent.EventType != Events.ExperienceAdd) continue;
                 ref var experienceBar = ref _filter.Get1(0);
                     
                 _experienceBarProtocol.CurrentLevel.Value = experienceBar.CurrentLevel;

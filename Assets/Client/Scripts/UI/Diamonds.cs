@@ -9,14 +9,15 @@ namespace Client.Scripts.UI
 {
     public class Diamonds : MonoBehaviour
     {
-        [Inject] private IGameStateProtocol _diamonds;
+        [Inject] private IDiamondsProtocol _diamonds;
         private TextMeshProUGUI _view;
         private CompositeDisposable _disposable = new();
+
 
         private void Start()
         {
             _view = gameObject.GetComponent<TextMeshProUGUI>();
-            _diamonds.Gold.Subscribe(_ =>
+            _diamonds.Diamonds.Subscribe(_ =>
             {
                 _view.text = CurrencyConvertor.CurrencyToString(_diamonds.Diamonds.Value);
             }).AddTo(_disposable);

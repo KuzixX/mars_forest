@@ -1,21 +1,26 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
-namespace Client.Scripts.Features.QuestSystem
+
+namespace Client.Scripts.Features.QuestSystem.View
 {
     public class QuestView : MonoBehaviour
     {
-        private string _propertyName;
-        [SerializeField] private TextMeshProUGUI _view;
+        public TextMeshProUGUI questStateView;
+        public TextMeshProUGUI title;
+        public Image           questFillImage;
+        public Button          getAward;
 
-        public void Init (string propertyName)
+        public void UpdateViewState(int current, int target, float fillPercent)
         {
-            _propertyName = propertyName;
+            questStateView.text = $"{current} / {target}";
+            questFillImage.fillAmount = fillPercent;
         }
 
-        public void UpdateText(int current, int target)
+        public void SetTitle(string questTitle)
         {
-            _view.text = _propertyName + ":" + current + "/" + target;
+            title.text = questTitle;
         }
     }
 }

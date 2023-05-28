@@ -1,60 +1,65 @@
 using Client.Scripts.ECS_Feature;
 using Client.Scripts.ECS_Feature.Camera_Control.System;
 using Client.Scripts.ECS_Feature.CellObjectLevelUp;
-using Client.Scripts.ECS_Feature.ClearSystem.Systems;
 using Client.Scripts.ECS_Feature.Experience_Bar.System;
 using Client.Scripts.ECS_Feature.ExtendLvl.Systems;
 using Client.Scripts.ECS_Feature.Interaction_Feature.system;
 using Client.Scripts.ECS_Feature.Pick_Gold_System.System;
-using Client.Scripts.ECS_Feature.Projection_Systems.System;
 using Client.Scripts.ECS_Feature.Resources_Generation.System;
 using Client.Scripts.ECS_Feature.Robot.System;
 using Client.Scripts.ECS_Feature.SpawnCellObject.System;
 using Client.Scripts.ECS_Feature.UpdGameState.Systems;
 using Client.Scripts.ECS_Feature.WTCSpace.System;
+using Client.Scripts.Features.ClearSystem.Systems;
+using Client.Scripts.Features.Projection_Systems.System;
 using Client.Scripts.Models;
 using Client.Scripts.Protocols;
 using Client.Scripts.Protocols.Interfaces;
 using Client.Scripts.Services;
 using Leopotam.Ecs;
-using Leopotam.Ecs.Ui.Systems;
 using UnityEngine;
 using Voody.UniLeo;
 using Zenject;
 using Input = Client.Scripts.ECS_Feature.Input_Features.System.Input;
 
-namespace Client.Scripts.CoreGameFeatures
+namespace Client.Scripts.Features
 {
     public class Startup : MonoBehaviour
     {
         private EcsWorld _world;
         private SqlLiteDB _sqlLiteDB;
-        private EcsSystems _systems;
-        [SerializeField] EcsUiEmitter uiEmitter;
-          
+        private EcsSystems _coreGameSystems;
+        private EcsSystems _projectionSystems;
+        private EcsSystems _clearSystems;
+
         [Header("Data")]
-        public Scripts.UI.UI ui;
         public StaticData staticData;
         public SceneData sceneData;
-        public FX fx;
 
-        [Inject] private IGameStateProtocol _gameStateProtocol;
+        [Inject] private IGoldProtocol _goldProtocol;
+        [Inject] private IExperienceProtocol _experienceProtocol;
+        [Inject] private IDiamondsProtocol _diamondsProtocol;
+        [Inject] private ICellObjectCountProtocol _cellObjectCount;
+        [Inject] private IGameLevelProtocol _gameLevelProtocol;
         [Inject] private IExperienceBarProtocol _experienceBarProtocol;
-        [Inject] private IUiButtonsProtocol _uiButtonsProtocol;
 
         private void Start()
         {
             _world = new EcsWorld();
-            _systems = new EcsSystems(_world);
+            _coreGameSystems = new EcsSystems(_world);
+            _projectionSystems = new EcsSystems(_world);
+            _clearSystems = new EcsSystems(_world);
             _sqlLiteDB = gameObject.AddComponent<SqlLiteDB>();
             Application.targetFrameRate = 60;
 
 #if UNITY_EDITOR
             Leopotam.Ecs.UnityIntegration.EcsWorldObserver.Create(_world);
-            Leopotam.Ecs.UnityIntegration.EcsSystemsObserver.Create(_systems);
+            Leopotam.Ecs.UnityIntegration.EcsSystemsObserver.Create(_coreGameSystems);
+            Leopotam.Ecs.UnityIntegration.EcsSystemsObserver.Create(_projectionSystems);
+            Leopotam.Ecs.UnityIntegration.EcsSystemsObserver.Create(_clearSystems);
 #endif
             
-            _systems.ConvertScene()
+            _coreGameSystems.ConvertScene()
                 .Add(new DebugSystem())
                 .Add(new Input())
                 .Add(new Interaction())
@@ -69,27 +74,36 @@ namespace Client.Scripts.CoreGameFeatures
                 .Add(new WorldToCanvasSpace())
                 .Add(new UpdateGameState())
                 .Add(new ExperienceBar())
-                .Add(new GameStateProjection(_gameStateProtocol))
-                .Add(new ExperienceBarProjection(_experienceBarProtocol))
-                .Add(new Clear())
-                .InjectUi(uiEmitter)
                 .Inject(_sqlLiteDB)
                 .Inject(staticData)
                 .Inject(sceneData)
-                .Inject(ui)
-                .Inject(fx)
+                .Init();
+            _projectionSystems
+                .Add(new GoldProjection(_goldProtocol))
+                .Add(new ExperienceProjection(_experienceProtocol))
+                .Add(new DiamondsProjection(_diamondsProtocol))
+                .Add(new CellObjectProjection(_cellObjectCount))
+                .Add(new GameLevelProjection(_gameLevelProtocol))
+                .Add(new ExperienceBarProjection(_experienceBarProtocol))
+                .Init();
+            _clearSystems
+                .Add(new Clear())
                 .Init();
         }
 
         private void Update()
         {
-            _systems?.Run();
+            _coreGameSystems?.Run();
+            _projectionSystems?.Run();
+            _clearSystems?.Run();
         }
         
 
         private void OnDestroy()
         {
-            _systems?.Destroy();
+            _coreGameSystems?.Destroy();
+            _projectionSystems?.Destroy();
+            _clearSystems?.Run();
             _world?.Destroy();
         }
     }

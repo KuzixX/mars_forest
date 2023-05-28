@@ -28,7 +28,7 @@ namespace Client.Scripts.ECS_Feature.Experience_Bar.System
             {
                 ref var expEvent = ref _event.Get1(idx);
 
-                if (expEvent.EventType == GameStateEvents.ExperienceAdd)
+                if (expEvent.EventType == Events.ExperienceAdd)
                 {
                     expBar.CurrentXp += expEvent.Value;
 

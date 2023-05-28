@@ -9,7 +9,7 @@ namespace Client.Scripts.ECS_Feature.CellObjectLevelUp
 {
     internal class CellObjectLvlUp : IEcsInitSystem
     {
-        private Scripts.UI.UI _ui;
+        //private Scripts.UI.UI _ui;
         private SqlLiteDB _sqlDB;
         private EcsWorld _world;
         private readonly EcsFilter<CellObject> _cellObjects;
@@ -25,7 +25,7 @@ namespace Client.Scripts.ECS_Feature.CellObjectLevelUp
                 if (_cellObjects.IsEmpty() || gameStateData.gold < tree.Get<CellObject>().upgradePrice) return;
                 // Game state event
                 var gameStateEvent = _world.NewEntity();
-                gameStateEvent.Get<GameStateChange>().EventType = GameStateEvents.GoldSubtract;
+                gameStateEvent.Get<GameStateChange>().EventType = Events.GoldSubtract;
                 gameStateEvent.Get<GameStateChange>().Value = tree.Get<CellObject>().upgradePrice;
                 // Update level
                 tree.Get<CellObject>().upgradePrice += 10;
