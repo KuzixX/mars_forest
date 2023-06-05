@@ -4,34 +4,34 @@ using Client.Scripts.UI.Events;
 using UnityEngine;
 using Zenject;
 
-namespace Client.Scripts.UI.Screens
+namespace Client.Scripts.UI.Menus
 {
-    public class QuestMenu : Menu
+    public class ShopMenu : MonoBehaviour
     {
         [Inject] private EventBus _eventBus;
-        [SerializeField] private GameObject questMenuWidget;
+        [SerializeField] private GameObject craftMenuWidget;
 
         private void Start()
         {
-            _eventBus.Subscribe<OpenQuestMenuEvent>(Show);
-            _eventBus.Subscribe<CloseQuestMenuEvent>(Hide);
+            _eventBus.Subscribe<OpenShopMenuEvent>(Show);
+            _eventBus.Subscribe<CloseShopMenuEvent>(Hide);
         }
 
         private void OnDisable()
         {
-            _eventBus.Unsubscribe<OpenQuestMenuEvent>(Show);
-            _eventBus.Unsubscribe<CloseQuestMenuEvent>(Hide);
+            _eventBus.Unsubscribe<OpenShopMenuEvent>(Show);
+            _eventBus.Unsubscribe<CloseShopMenuEvent>(Hide);
         }
 
         private void Show(object sender, EventArgs e)
         {
-            questMenuWidget.SetActive(true);
+            craftMenuWidget.SetActive(true);
             _eventBus.Publish(this, new MenuOpenEvent());
         }
 
         private void Hide(object sender, EventArgs e)
         {
-            questMenuWidget.SetActive(false);
+            craftMenuWidget.SetActive(false);
         }
     }
 }

@@ -1,7 +1,6 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-namespace Client.Scripts.Models.UI_Models
-{
+namespace Client.Scripts.Models.UI {
     public abstract class Item : MonoBehaviour
     {
     }

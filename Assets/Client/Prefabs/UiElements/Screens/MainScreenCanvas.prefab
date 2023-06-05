@@ -299,6 +299,8 @@ GameObject:
   - component: {fileID: 6420976615936993456}
   - component: {fileID: 9094416312659777937}
   - component: {fileID: 6795029318467945534}
+  - component: {fileID: 5258762059222209668}
+  - component: {fileID: 1234837313563561526}
   m_Layer: 5
   m_Name: back_button
   m_TagString: Untagged
@@ -432,6 +434,30 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 5258762059222209668}
+        m_TargetAssemblyTypeName: Client.Scripts.UI.ShowSettingsScreen, UI
+        m_MethodName: Hide
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1234837313563561526}
+        m_TargetAssemblyTypeName: Client.Scripts.UI.ShowShopMenu, UI
+        m_MethodName: Hide
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &9094416312659777937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -454,6 +480,30 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 526b92b0684b46dbbfee15d5dd2a4ff8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5258762059222209668
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245926417178233153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d59dd7c9944087d46966c07be314f6b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1234837313563561526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 245926417178233153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba13542cdaa68404d82ae4d38fef5f14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &348860462336935211
@@ -1102,6 +1152,7 @@ GameObject:
   - component: {fileID: 7023125910870453745}
   - component: {fileID: 1032849552223600394}
   - component: {fileID: 5954991007252915845}
+  - component: {fileID: 3205423866817174625}
   - component: {fileID: 1071104863048382412}
   m_Layer: 5
   m_Name: open_settings_btn
@@ -1194,7 +1245,7 @@ MonoBehaviour:
     m_PressedColor: {r: 1, g: 0, b: 0, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
-    m_ColorMultiplier: 1
+    m_ColorMultiplier: 1.39
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
@@ -1212,10 +1263,10 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1071104863048382412}
-        m_TargetAssemblyTypeName: Client.Scripts.Commands.EcsEventCommand, Assembly-CSharp
-        m_MethodName: Execute
-        m_Mode: 5
+      - m_Target: {fileID: 3205423866817174625}
+        m_TargetAssemblyTypeName: Client.Scripts.UI.ShowSettingsScreen, UI
+        m_MethodName: Show
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1224,6 +1275,18 @@ MonoBehaviour:
           m_StringArgument: SettingMenuBtn
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &3205423866817174625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1145500983489209565}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d59dd7c9944087d46966c07be314f6b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1071104863048382412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19720,6 +19783,7 @@ GameObject:
   - component: {fileID: 7153553445583445741}
   - component: {fileID: 8438948469440280937}
   - component: {fileID: 3600129173614471181}
+  - component: {fileID: 3545315639850816835}
   m_Layer: 5
   m_Name: shop_screen_btn
   m_TagString: Untagged
@@ -19828,7 +19892,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8438948469440280937}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3545315639850816835}
+        m_TargetAssemblyTypeName: Client.Scripts.UI.ShowShopMenu, UI
+        m_MethodName: Show
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3545315639850816835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6882337397360204257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba13542cdaa68404d82ae4d38fef5f14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7073932019054182128
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,8 +4,7 @@ using UnityEngine.UI;
 
 namespace Client.Scripts.Models.UI_Models
 {
-    public class CraftItem : Item
-    {
+    public class CraftItem : Ite {
         public Image image;
         public TextMeshProUGUI title;
         public TextMeshProUGUI description;

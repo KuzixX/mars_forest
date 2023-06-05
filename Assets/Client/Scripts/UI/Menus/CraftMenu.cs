@@ -6,7 +6,7 @@ using Zenject;
 
 namespace Client.Scripts.UI.Screens
 {
-    public class CraftMenu : Menu
+    public class CraftMenu : Menus.Menu
     {
         [Inject] private EventBus _eventBus;
         [SerializeField] private GameObject craftMenuWidget;

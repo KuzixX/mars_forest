@@ -1,9 +1,10 @@
 using Leopotam.Ecs.Ui.Actions;
 using TMPro;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Client.Scripts.Models.UI_Models
+namespace Client.Scripts.Models.UI
 {
     public class QuestItem : Item
     {

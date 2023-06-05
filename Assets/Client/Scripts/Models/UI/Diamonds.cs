@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Client.Scripts.Models.UI_Models
+namespace Client.Scripts.Models.UI
 {
     [CreateAssetMenu]
     [System.Serializable]

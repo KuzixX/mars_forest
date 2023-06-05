@@ -17,7 +17,7 @@ namespace Client.Scripts.Features.QuestSystem.Presenter
         private GetAwardCommand                   _getAwardCommand;
         [SerializeField] private StaticData        staticData;
         [Inject] private QuestContainerTransform  _questContainer;
-        [Inject] private QuestDataProtocol        _questDataProtocol;
+      //  [Inject] private QuestDataProtocol        _questDataProtocol;
         private CompositeDisposable               _disposable = new();
 
 
@@ -61,33 +61,33 @@ namespace Client.Scripts.Features.QuestSystem.Presenter
         {
             foreach (var model in _models)
             {
-                switch (model.QuestType)
-                {
-                    case QuestType.GoldQuest:
-                        if(!model.IsDone)
-                            model.QuestObjectiveCurrent = _questDataProtocol.Gold.Value;
-                        if (model.QuestObjectiveCurrent >= model.QuestRequirementCount)
-                            model.IsDone = true;
-                        break;
-                    case QuestType.ExperienceQuest:
-                        if(!model.IsDone)
-                            model.QuestObjectiveCurrent = _questDataProtocol.Experience.Value;
-                        break;
-                    case QuestType.DiamondsQuest:
-                        if(!model.IsDone)
-                            model.QuestObjectiveCurrent = _questDataProtocol.Diamonds.Value;
-                        break;
-                    case QuestType.GameLevelUpgradeQuest:
-                        if(!model.IsDone)
-                            model.QuestObjectiveCurrent = _questDataProtocol.GameLevel.Value;
-                        break;
-                    case QuestType.CellObjectQuest:
-                        if(!model.IsDone)
-                            model.QuestObjectiveCurrent = _questDataProtocol.CellObjects.Value;
-                        break;
-                    case QuestType.CellObjectLevelUpgradeQuest:
-                        break;
-                }
+                // switch (model.QuestType)
+                // {
+                //     case QuestType.GoldQuest:
+                //         if(!model.IsDone)
+                //             model.QuestObjectiveCurrent = _questDataProtocol.Gold.Value;
+                //         if (model.QuestObjectiveCurrent >= model.QuestRequirementCount)
+                //             model.IsDone = true;
+                //         break;
+                //     case QuestType.ExperienceQuest:
+                //         if(!model.IsDone)
+                //             model.QuestObjectiveCurrent = _questDataProtocol.Experience.Value;
+                //         break;
+                //     case QuestType.DiamondsQuest:
+                //         if(!model.IsDone)
+                //             model.QuestObjectiveCurrent = _questDataProtocol.Diamonds.Value;
+                //         break;
+                //     case QuestType.GameLevelUpgradeQuest:
+                //         if(!model.IsDone)
+                //             model.QuestObjectiveCurrent = _questDataProtocol.GameLevel.Value;
+                //         break;
+                //     case QuestType.CellObjectQuest:
+                //         if(!model.IsDone)
+                //             model.QuestObjectiveCurrent = _questDataProtocol.CellObjects.Value;
+                //         break;
+                //     case QuestType.CellObjectLevelUpgradeQuest:
+                //         break;
+                // }
             }
         }
     }

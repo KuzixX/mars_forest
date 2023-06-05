@@ -1,6 +1,6 @@
 namespace Client.Scripts.UI.Screens
 {
-    public class MainMenu : Menu
+    public class MainMenu : Menus.Menu
     {
     }
 }
