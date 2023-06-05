@@ -2,9 +2,9 @@ using UnityEngine;
 
 namespace Client.Scripts.UI.Screens
 {
-    public abstract class Screen : MonoBehaviour
+    public abstract class Menu : MonoBehaviour
     {
-        public virtual void Show(bool state = true)
+        public virtual void Show(bool state = false)
         {
             gameObject.SetActive(state);
         }

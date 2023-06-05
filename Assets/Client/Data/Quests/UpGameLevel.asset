@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d20f232550b0b54ca81b60b2b1c1b12, type: 3}
   m_Name: UpGameLevel
   m_EditorClassIdentifier: 
+  type: 3
   title: Up game level
   objective: 3
   diamondsReward: 20

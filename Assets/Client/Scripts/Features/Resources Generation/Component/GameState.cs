@@ -1,6 +1,6 @@
 using System;
 
-namespace Client.Scripts.ECS_Feature.Resources_Generation.Component
+namespace Client.Scripts.Features.Resources_Generation.Component
 {
     [Serializable]
     public struct GameState

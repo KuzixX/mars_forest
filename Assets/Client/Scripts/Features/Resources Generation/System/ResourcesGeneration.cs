@@ -1,6 +1,7 @@
 using Client.Scripts.ECS_Feature.Common_Сomponents;
 using Client.Scripts.ECS_Feature.Common_Сomponents.Tags;
-using Client.Scripts.ECS_Feature.Resources_Generation.Component;
+using Client.Scripts.Features.Common_Сomponents;
+using Client.Scripts.Features.Resources_Generation.Component;
 using Client.Scripts.Models;
 using Leopotam.Ecs;
 using UnityEngine;

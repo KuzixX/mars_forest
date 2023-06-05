@@ -2,8 +2,8 @@
 
 namespace Client.Scripts.Features.Common_Сomponents
 {
-    public struct EcsCommand
+    public struct EcsEventCommand 
     {
-        public string CommandDescription;
+        public Events Events;
     }
 }

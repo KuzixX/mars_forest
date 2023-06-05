@@ -1,4 +1,6 @@
 ﻿using Client.Scripts.ECS_Feature.Common_Сomponents;
+using Client.Scripts.Features.Common_Сomponents;
+using Client.Scripts.Features.Resources_Generation.Component;
 using Client.Scripts.Models;
 using Leopotam.Ecs;
 using UnityEngine;
@@ -7,7 +9,7 @@ namespace Client.Scripts.ECS_Feature.UpdGameState.Systems
 {
     internal class UpdateGameState : IEcsRunSystem
     {
-        private readonly EcsFilter<Resources_Generation.Component.GameState> _gameState;
+        private readonly EcsFilter<GameState> _gameState;
         private readonly EcsFilter<GameStateChange> _stateChange;
 
         public void Run()

@@ -1,6 +1,6 @@
 ﻿using Client.Scripts.Models;
 
-namespace Client.Scripts.ECS_Feature.Common_Сomponents
+namespace Client.Scripts.Features.Common_Сomponents
 {
     internal struct GameStateChange
     {

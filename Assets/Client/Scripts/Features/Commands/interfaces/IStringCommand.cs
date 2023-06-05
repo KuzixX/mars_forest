@@ -2,7 +2,7 @@
 
 namespace Client.Scripts.Commands.interfaces
 {
-    interface ICommand
+    interface IStringCommand
     {
         public void Execute(string cmd);
     }

@@ -6,7 +6,7 @@ namespace Client.Scripts.Features
 {
     internal class DebugSystem : IEcsRunSystem
     {
-        private readonly EcsFilter<EcsCommand> _cmd;
+        private readonly EcsFilter<EcsStringCommand> _cmd;
         public void Run()
         {
             if(_cmd.IsEmpty()) return;

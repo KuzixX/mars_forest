@@ -1,5 +1,4 @@
-﻿using Client.Scripts.Protocols.Interfaces;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Client.Scripts.Protocols
 { 

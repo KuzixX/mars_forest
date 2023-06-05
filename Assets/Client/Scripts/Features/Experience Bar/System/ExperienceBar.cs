@@ -1,11 +1,12 @@
 using Client.Scripts.ECS_Feature.Common_Сomponents;
 using Client.Scripts.ECS_Feature.Experience_Bar.Component;
+using Client.Scripts.Features.Common_Сomponents;
 using Client.Scripts.Models;
 using Client.Scripts.Services;
 using Leopotam.Ecs;
 using UnityEngine;
 
-namespace Client.Scripts.ECS_Feature.Experience_Bar.System
+namespace Client.Scripts.Features.Experience_Bar.System
 {
     internal class ExperienceBar : IEcsRunSystem, IEcsInitSystem
     {

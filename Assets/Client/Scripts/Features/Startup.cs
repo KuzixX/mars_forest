@@ -1,7 +1,5 @@
-using Client.Scripts.ECS_Feature;
 using Client.Scripts.ECS_Feature.Camera_Control.System;
 using Client.Scripts.ECS_Feature.CellObjectLevelUp;
-using Client.Scripts.ECS_Feature.Experience_Bar.System;
 using Client.Scripts.ECS_Feature.ExtendLvl.Systems;
 using Client.Scripts.ECS_Feature.Interaction_Feature.system;
 using Client.Scripts.ECS_Feature.Pick_Gold_System.System;
@@ -11,9 +9,9 @@ using Client.Scripts.ECS_Feature.SpawnCellObject.System;
 using Client.Scripts.ECS_Feature.UpdGameState.Systems;
 using Client.Scripts.ECS_Feature.WTCSpace.System;
 using Client.Scripts.Features.ClearSystem.Systems;
+using Client.Scripts.Features.Experience_Bar.System;
 using Client.Scripts.Features.Projection_Systems.System;
 using Client.Scripts.Models;
-using Client.Scripts.Protocols;
 using Client.Scripts.Protocols.Interfaces;
 using Client.Scripts.Services;
 using Leopotam.Ecs;
@@ -26,22 +24,23 @@ namespace Client.Scripts.Features
 {
     public class Startup : MonoBehaviour
     {
-        private EcsWorld _world;
-        private SqlLiteDB _sqlLiteDB;
+        private EcsWorld   _world;
+        private SqlLiteDB  _sqlLiteDB;
         private EcsSystems _coreGameSystems;
         private EcsSystems _projectionSystems;
         private EcsSystems _clearSystems;
 
         [Header("Data")]
         public StaticData staticData;
-        public SceneData sceneData;
+        public SceneData  sceneData;
 
-        [Inject] private IGoldProtocol _goldProtocol;
-        [Inject] private IExperienceProtocol _experienceProtocol;
-        [Inject] private IDiamondsProtocol _diamondsProtocol;
+        [Inject] private IGoldProtocol            _goldProtocol;
+        [Inject] private IExperienceProtocol      _experienceProtocol;
+        [Inject] private IDiamondsProtocol        _diamondsProtocol;
         [Inject] private ICellObjectCountProtocol _cellObjectCount;
-        [Inject] private IGameLevelProtocol _gameLevelProtocol;
-        [Inject] private IExperienceBarProtocol _experienceBarProtocol;
+        [Inject] private IGameLevelProtocol       _gameLevelProtocol;
+        [Inject] private IExperienceBarProtocol   _experienceBarProtocol;
+        [Inject] private IQuestDataProtocol       _questDataProtocol;
 
         private void Start()
         {
@@ -85,6 +84,7 @@ namespace Client.Scripts.Features
                 .Add(new CellObjectProjection(_cellObjectCount))
                 .Add(new GameLevelProjection(_gameLevelProtocol))
                 .Add(new ExperienceBarProjection(_experienceBarProtocol))
+                .Add(new QuestDataProjection(_questDataProtocol))
                 .Init();
             _clearSystems
                 .Add(new Clear())

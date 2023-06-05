@@ -8,7 +8,7 @@ namespace Client.Scripts.Features.ClearSystem.Systems
     internal class Clear : IEcsRunSystem
     {
         private readonly EcsFilter<GameStateChange> _gameState;
-        private readonly EcsFilter<EcsCommand> _command;
+        private readonly EcsFilter<EcsStringCommand> _command;
         public void Run()
         {
             foreach (var idx in _gameState)
@@ -21,7 +21,7 @@ namespace Client.Scripts.Features.ClearSystem.Systems
             {
                 if (_command.IsEmpty()) continue;
                 ref var command = ref _command.GetEntity(idx);
-                command.Del<EcsCommand>();
+                command.Del<EcsStringCommand>();
             }
             
         }

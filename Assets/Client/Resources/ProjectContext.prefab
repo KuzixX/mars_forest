@@ -44,6 +44,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad25c3f244bb4338ae411edcf8e0b24d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1349511198672404810
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1278345768639726215}
+  - component: {fileID: 4494439711345815298}
+  m_Layer: 0
+  m_Name: EventBus
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1278345768639726215
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349511198672404810}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2186773710047257775}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4494439711345815298
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1349511198672404810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7fe9a7acc44242ca8dc29afc0644bbab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1496765910782696030
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,6 +220,50 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76887ff720c541329c16d640ca9a496e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2518554091209718922
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6404680890713697191}
+  - component: {fileID: 3830167087393069135}
+  m_Layer: 0
+  m_Name: Quest Data Installer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6404680890713697191
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2518554091209718922}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2186773710047257775}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3830167087393069135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2518554091209718922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1429b9fabd3244b382536a355f63ab28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5401998019053442717
 GameObject:
   m_ObjectHideFlags: 0
@@ -255,6 +343,8 @@ Transform:
   - {fileID: 3584308282255758541}
   - {fileID: 7123851452520686047}
   - {fileID: 2468967412399636219}
+  - {fileID: 6404680890713697191}
+  - {fileID: 1278345768639726215}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -278,6 +368,8 @@ MonoBehaviour:
   - {fileID: 6458669449142887763}
   - {fileID: 4095403848297641744}
   - {fileID: 4014993354392495145}
+  - {fileID: 3830167087393069135}
+  - {fileID: 4494439711345815298}
   _installerPrefabs: []
   _parentNewObjectsUnderContext: 1
   _editorReflectionBakingCoverageMode: 0

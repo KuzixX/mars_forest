@@ -1,13 +1,16 @@
 using System;
+using Client.Scripts.Models.UI_Models;
 using UnityEngine;
 
-namespace Client.Scripts.Models.UI_Models
+namespace Client.Scripts.Models.UI
 {
     [CreateAssetMenu]
     [System.Serializable]
     public class Quest : ScriptableObject
     {
         [Header("Description")]
+        [SerializeField] protected QuestType type;
+        public QuestType Type => type;
         [SerializeField] protected String title;
         public String Title => title;
         [SerializeField] protected QuestObjective objective; // name of the quest objective

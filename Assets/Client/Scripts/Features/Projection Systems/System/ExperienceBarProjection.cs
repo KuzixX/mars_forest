@@ -1,5 +1,6 @@
 ﻿using Client.Scripts.ECS_Feature.Common_Сomponents;
 using Client.Scripts.ECS_Feature.Experience_Bar.Component;
+using Client.Scripts.Features.Common_Сomponents;
 using Client.Scripts.Models;
 using Client.Scripts.Protocols.Interfaces;
 using Leopotam.Ecs;
