@@ -1,5 +1,3 @@
-using Client.Scripts.ECS_Feature.Camera_Control.Component;
-using Client.Scripts.ECS_Feature.Common_Сomponents.Tags;
 using Leopotam.Ecs;
 
 /*namespace Client.Scripts.ECS_Feature.Camera_Control.System

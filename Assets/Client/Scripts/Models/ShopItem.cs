@@ -1,5 +1,4 @@
 using Client.Scripts.Models.UI;
-using Client.Scripts.Models.UI_Models;
 using TMPro;
 using UnityEngine;
 

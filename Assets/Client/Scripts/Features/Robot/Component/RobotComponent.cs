@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Client.Scripts.ECS_Feature.Robot.Component
+namespace Client.Scripts.Features.Robot.Component
 {
     [Serializable]
     public struct RobotComponent

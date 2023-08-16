@@ -1,4 +1,4 @@
-namespace Client.Scripts.ECS_Feature.Quest_System.Component
+namespace Client.Scripts.Features.Quest_System.Component
 {
     internal struct QuestEvent
     {

@@ -1,6 +1,4 @@
-﻿using Client.Scripts.ECS_Feature;
-using Client.Scripts.ECS_Feature.Common_Сomponents;
-using Client.Scripts.Features.Common_Сomponents;
+﻿using Client.Scripts.Features.Common_Сomponents;
 using Leopotam.Ecs;
 
 namespace Client.Scripts.Features.ClearSystem.Systems

@@ -1,12 +1,12 @@
-﻿using Client.Scripts.Commands.interfaces;
+﻿using Client.Scripts.Features.Commands.interfaces;
 using Client.Scripts.Features.Common_Сomponents;
 using Leopotam.Ecs;
 using UnityEngine;
 using Voody.UniLeo;
 
-namespace Client.Scripts.Commands
+namespace Client.Scripts.Features.Commands
 {
-    internal class EcsEventStringCommand : MonoBehaviour, IStringCommand
+    public class EcsEventStringCommand : MonoBehaviour, IStringCommand
     {
         private EcsWorld _world;
         public void Execute(string commandDescription) 

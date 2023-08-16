@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-namespace Client.Scripts.Services
+namespace Client.Scripts.Services.Other
 {
     public class SC_FPSCounter : MonoBehaviour
     {

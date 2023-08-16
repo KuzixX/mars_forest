@@ -1,5 +1,4 @@
 using System;
-using Client.Scripts.Models.UI_Models;
 using UnityEngine;
 
 namespace Client.Scripts.Models.UI

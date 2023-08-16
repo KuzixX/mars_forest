@@ -1,8 +1,8 @@
-using Client.Scripts.ECS_Feature.Common_Сomponents;
-using Client.Scripts.ECS_Feature.Experience_Bar.Component;
 using Client.Scripts.Features.Common_Сomponents;
+using Client.Scripts.Features.Experience_Bar.Component;
 using Client.Scripts.Models;
 using Client.Scripts.Services;
+using Client.Scripts.Services.Other;
 using Leopotam.Ecs;
 using UnityEngine;
 

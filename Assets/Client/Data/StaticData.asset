@@ -40,6 +40,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2e2f5577a0a1e8e4aacc47653cfcd183, type: 2}
   - {fileID: 11400000, guid: 2e2f5577a0a1e8e4aacc47653cfcd183, type: 2}
   mainCharacter: {fileID: 11400000, guid: d4e76605ac02ba347bfe6463278bf9e2, type: 2}
+  deliveryUnit: {fileID: 11400000, guid: 831a0b78aea12174e8160b186c34cd29, type: 2}
   freeTile: {fileID: 11400000, guid: 7b49816422e3e104c8032c444a3334b5, type: 2}
   lockTile: {fileID: 11400000, guid: 748415841bc9ab24e8214f3e669e678f, type: 2}
   lightDisk: {fileID: 7583450498362998733, guid: b893e06a89ce49d4abb0a34f0cc8794e, type: 3}
@@ -49,7 +50,6 @@ MonoBehaviour:
   uiItemElement: {fileID: 4679757391526957075, guid: 6c97d9c8a9283d842a0f78a13056c8d7, type: 3}
   goldSprite: {fileID: 5619403006187035283, guid: 977a71309e132f54ba9500f97391bbab, type: 3}
   uiQuestElement: {fileID: 219090374459084602, guid: 4cab2f374dd8eb64685a804d192288e0, type: 3}
-  uiShopElement: {fileID: 6112776759471561565, guid: cf1d1ca77606af3469f3bd91319c4c85, type: 3}
   instagramUrl: https://www.instagram.com/kuzixx/
   youTubeUrl: 
   facebookUrl: 

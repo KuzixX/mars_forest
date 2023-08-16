@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Client.Scripts.ECS_Feature.SpawnCellObject.Component
+namespace Client.Scripts.Features.SpawnCellObject.Component
 {
     internal struct TempCellObjectData
     {
@@ -11,5 +11,6 @@ namespace Client.Scripts.ECS_Feature.SpawnCellObject.Component
         public int Price;
         public int ExpAmount;
         public int Id;
+        public int ProductAmount;
     }
 }

@@ -1,8 +1,8 @@
-using Client.Scripts.ECS_Feature.Input_Features.Component;
+using Client.Scripts.Features.Input_Features.Component;
 using Leopotam.Ecs;
 using UnityEngine;
 
-namespace Client.Scripts.ECS_Feature.Input_Features.System
+namespace Client.Scripts.Features.Input_Features.System
 {
     sealed class Input : IEcsRunSystem, IEcsInitSystem
     {

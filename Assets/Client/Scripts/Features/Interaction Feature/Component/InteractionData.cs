@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Client.Scripts.ECS_Feature.Interaction_Feature.Component
+namespace Client.Scripts.Features.Interaction_Feature.Component
 {
     internal struct InteractionData
     {

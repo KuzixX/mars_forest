@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Client.Scripts.ECS_Feature.Input_Features.Component
+namespace Client.Scripts.Features.Input_Features.Component
 {
     public struct InputComponent
     {

@@ -1,5 +1,4 @@
 using Client.Scripts.Models.UI;
-using Client.Scripts.Models.UI_Models;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -20,9 +19,13 @@ namespace Client.Scripts.Models
         [Header("Diamonds")] 
         [SerializeField] protected Diamonds[] diamonds;
         public Diamonds[] Diamonds => diamonds;
-        [Header("Character")]
+        [Header("Units")]
         [SerializeField] protected Character mainCharacter;
         public Character MainCharacter => mainCharacter;
+        [SerializeField] protected Unit deliveryUnit;
+        public Unit DeliveryUnit => deliveryUnit;
+        [SerializeField] protected EnvModule deliveryLander;
+        public EnvModule DeliveryLander => deliveryLander;
         [Header("Tiles")] 
         [SerializeField] protected TileBase freeTile;
         public TileBase FreeTile => freeTile;

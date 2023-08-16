@@ -1,7 +1,7 @@
-using Client.Scripts.ECS_Feature.Common_Сomponents.Tags;
+using Client.Scripts.Features.Common_Сomponents.Tags;
 using Voody.UniLeo;
 
-namespace Client.Scripts.ECS_Feature.ECS_Feature_old.MonoProviders
+namespace Client.Scripts.Features.MonoProviders
 {
     public class TakeCellProvider : MonoProvider<TakenCell>
     {

@@ -1,15 +1,15 @@
 using System;
-using Client.Scripts.ECS_Feature.Common_Сomponents;
-using Client.Scripts.ECS_Feature.Common_Сomponents.Tags;
-using Client.Scripts.ECS_Feature.ECS_Feature_old.EventCoponents;
-using Client.Scripts.ECS_Feature.Interaction_Feature.Component;
-using Client.Scripts.ECS_Feature.Robot.Component;
+using Client.Scripts.Features.Common_Сomponents;
+using Client.Scripts.Features.Common_Сomponents.EventCoponents;
+using Client.Scripts.Features.Common_Сomponents.Tags;
+using Client.Scripts.Features.Interaction_Feature.Component;
+using Client.Scripts.Features.Robot.Component;
 using Client.Scripts.Models;
 using Leopotam.Ecs;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace Client.Scripts.ECS_Feature.Robot.System
+namespace Client.Scripts.Features.Robot.System
 {
     internal class HomeRobot : IEcsRunSystem, IEcsInitSystem
     {
@@ -61,15 +61,15 @@ namespace Client.Scripts.ECS_Feature.Robot.System
             foreach (var index in _filter)
             {
                 ref var mainCharacter = ref _mainCharacterFilter.Get1(0);
-                ref var targetPos = ref _filter.Get1(index);
-                ref var var = ref _mainCharacterFilter.Get2(0);
+                ref var targetPos     = ref _filter.Get1(index);
+                ref var var    = ref _mainCharacterFilter.Get2(0);
 
                 // Calculate deltas
                 var position1 = mainCharacter.transform.position;
-                var.deltaValueZ = position1.z - var.lastFrameValueZ;
-                var.deltaValueX = position1.x - var.lastFrameValueX;
-                var.lastFrameValueZ = position1.z;
-                var.lastFrameValueX = position1.x;
+                var.deltaValueZ      =  position1.z - var.lastFrameValueZ;
+                var.deltaValueX      =  position1.x - var.lastFrameValueX;
+                var.lastFrameValueZ  =  position1.z;
+                var.lastFrameValueX  =  position1.x;
 
                 // Look the target at the Main character
                 if (Vector3.Distance(mainCharacter.transform.position, targetPos.transform.position) > 1)

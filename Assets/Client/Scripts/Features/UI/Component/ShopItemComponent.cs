@@ -1,6 +1,6 @@
-using Client.Scripts.Models.UI_Models;
+using Client.Scripts.Models.UI;
 
-namespace Client.Scripts.ECS_Feature.ECS_Feature_old.UI.Component
+namespace Client.Scripts.Features.UI.Component
 {
     internal struct ShopItemComponent
     {

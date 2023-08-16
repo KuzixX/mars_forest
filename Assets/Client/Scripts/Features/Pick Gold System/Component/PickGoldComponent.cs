@@ -1,4 +1,4 @@
-namespace Client.Scripts.ECS_Feature.Pick_Gold_System.Component
+namespace Client.Scripts.Features.Pick_Gold_System.Component
 {
     internal struct PickGoldComponent
     {

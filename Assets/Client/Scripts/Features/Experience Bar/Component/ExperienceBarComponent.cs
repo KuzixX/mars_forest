@@ -1,4 +1,4 @@
-namespace Client.Scripts.ECS_Feature.Experience_Bar.Component
+namespace Client.Scripts.Features.Experience_Bar.Component
 {
     internal struct ExperienceBarComponent
     {

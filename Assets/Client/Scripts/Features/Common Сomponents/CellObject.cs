@@ -1,12 +1,13 @@
 using System;
 using UnityEngine;
 
-namespace Client.Scripts.ECS_Feature.Common_Сomponents
+namespace Client.Scripts.Features.Common_Сomponents
 {
     [Serializable]
     public struct CellObject
     {
         public int id;
+        public int productAmount;
         public int level;
         public int upgradePrice;
         public int expAmount;
@@ -14,6 +15,7 @@ namespace Client.Scripts.ECS_Feature.Common_Сomponents
         public string title;
         public float currentCycleState;
         public float lifeTimeLvlUpTitle;
+        public Collider collider;
         public GameObject isSelected;
         public GameObject treePrefab;
         public GameObject isFullIcon;

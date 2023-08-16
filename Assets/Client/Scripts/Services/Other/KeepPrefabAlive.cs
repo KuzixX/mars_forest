@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Client.Scripts.Services
+namespace Client.Scripts.Services.Other
 {
     public class KeepPrefabAlive : MonoBehaviour
     {

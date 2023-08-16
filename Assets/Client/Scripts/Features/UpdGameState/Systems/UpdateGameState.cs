@@ -1,11 +1,10 @@
-﻿using Client.Scripts.ECS_Feature.Common_Сomponents;
-using Client.Scripts.Features.Common_Сomponents;
+﻿using Client.Scripts.Features.Common_Сomponents;
 using Client.Scripts.Features.Resources_Generation.Component;
 using Client.Scripts.Models;
 using Leopotam.Ecs;
 using UnityEngine;
 
-namespace Client.Scripts.ECS_Feature.UpdGameState.Systems
+namespace Client.Scripts.Features.UpdGameState.Systems
 {
     internal class UpdateGameState : IEcsRunSystem
     {

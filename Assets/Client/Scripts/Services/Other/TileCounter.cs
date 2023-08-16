@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-namespace Client.Scripts.Services
+namespace Client.Scripts.Services.Other
 {
     public class TileCounter
     {

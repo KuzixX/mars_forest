@@ -1,6 +1,6 @@
 using System;
 
-namespace Client.Scripts.ECS_Feature.ECS_Feature_old.EventCoponents
+namespace Client.Scripts.Features.Common_Сomponents.EventCoponents
 {
     public struct OnParticleSpawn
     {

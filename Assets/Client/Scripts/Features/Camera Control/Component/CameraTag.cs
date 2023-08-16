@@ -1,4 +1,4 @@
-namespace Client.Scripts.ECS_Feature.Camera_Control.Component
+namespace Client.Scripts.Features.Camera_Control.Component
 {
     public struct CameraTag
     {

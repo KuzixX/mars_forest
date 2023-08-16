@@ -1,6 +1,4 @@
-﻿using Client.Scripts.Models;
-
-namespace Client.Scripts.Commands.interfaces
+﻿namespace Client.Scripts.Features.Commands.interfaces
 {
     interface IStringCommand
     {

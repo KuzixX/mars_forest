@@ -111,6 +111,8 @@ GameObject:
   - component: {fileID: 293339819887407881}
   - component: {fileID: 8836142990465767878}
   - component: {fileID: 4164880959137022960}
+  - component: {fileID: 4788680393372149231}
+  - component: {fileID: 8073841176202796099}
   m_Layer: 0
   m_Name: shop
   m_TagString: Untagged
@@ -212,6 +214,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ab2a404b44d44ce8829316548d7defe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!208 &4788680393372149231
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2239093252335735516}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: -0.003}
+  m_TimeToStationary: 0.5
+--- !u!136 &8073841176202796099
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2239093252335735516}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.7
+  m_Height: 1.97
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.27, z: -0.0026261508}
 --- !u!1 &5722223905676432753
 GameObject:
   m_ObjectHideFlags: 0

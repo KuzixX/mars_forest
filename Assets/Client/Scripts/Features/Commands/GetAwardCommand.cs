@@ -1,5 +1,4 @@
-﻿using Client.Scripts.ECS_Feature.Common_Сomponents;
-using Client.Scripts.Features.Common_Сomponents;
+﻿using Client.Scripts.Features.Common_Сomponents;
 using Client.Scripts.Models;
 using Leopotam.Ecs;
 using Voody.UniLeo;

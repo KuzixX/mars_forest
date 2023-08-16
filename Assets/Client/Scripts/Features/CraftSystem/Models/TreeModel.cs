@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Client.Scripts.Features.Commands;
+using UnityEngine;
 
 namespace Client.Scripts.Features.CraftSystem.Models
 {
@@ -13,5 +14,6 @@ namespace Client.Scripts.Features.CraftSystem.Models
         public float      ProductionCycleTime;
         public Sprite      Image;
         public GameObject Prefab;
+        public SpawnCraftItem EcsCommand;
     }
 }

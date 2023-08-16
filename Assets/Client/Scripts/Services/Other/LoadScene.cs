@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-namespace Client.Scripts.Services
+namespace Client.Scripts.Services.Other
 {
     public class LoadScene : MonoBehaviour
     {

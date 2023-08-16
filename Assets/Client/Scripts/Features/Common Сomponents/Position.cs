@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Client.Scripts.ECS_Feature.Common_Сomponents
+namespace Client.Scripts.Features.Common_Сomponents
 {
     [Serializable]
     public struct Position

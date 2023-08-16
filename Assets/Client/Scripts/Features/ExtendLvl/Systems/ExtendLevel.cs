@@ -1,9 +1,9 @@
-using Client.Scripts.ECS_Feature.Common_Сomponents;
-using Client.Scripts.ECS_Feature.ExtendLvl.Components;
+using Client.Scripts.Features.Common_Сomponents;
+using Client.Scripts.Features.ExtendLvl.Components;
 using Client.Scripts.Models;
 using Leopotam.Ecs;
 
-namespace Client.Scripts.ECS_Feature.ExtendLvl.Systems
+namespace Client.Scripts.Features.ExtendLvl.Systems
 {
     sealed class ExtendLevel : IEcsRunSystem, IEcsInitSystem
     {

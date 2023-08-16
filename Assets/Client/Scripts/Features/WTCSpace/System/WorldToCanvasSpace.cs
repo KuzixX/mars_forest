@@ -1,12 +1,12 @@
-﻿using Client.Scripts.ECS_Feature.Common_Сomponents;
-using Client.Scripts.ECS_Feature.Common_Сomponents.Tags;
+﻿using Client.Scripts.Features.Common_Сomponents;
+using Client.Scripts.Features.Common_Сomponents.Tags;
 using Client.Scripts.Models;
 using Client.Scripts.Protocols;
-using Client.Scripts.Services;
+using Client.Scripts.Services.Other;
 using Leopotam.Ecs;
 using UnityEngine;
 
-namespace Client.Scripts.ECS_Feature.WTCSpace.System
+namespace Client.Scripts.Features.WTCSpace.System
 {
     internal class WorldToCanvasSpace : IEcsRunSystem
     {

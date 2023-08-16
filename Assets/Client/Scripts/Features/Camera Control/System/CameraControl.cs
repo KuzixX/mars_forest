@@ -1,14 +1,14 @@
-﻿using Client.Scripts.ECS_Feature.Camera_Control.Component;
-using Client.Scripts.ECS_Feature.Common_Сomponents;
-using Client.Scripts.ECS_Feature.Common_Сomponents.Tags;
-using Client.Scripts.ECS_Feature.Input_Features.Component;
-using Client.Scripts.ECS_Feature.Interaction_Feature.Component;
+﻿using Client.Scripts.Features.Camera_Control.Component;
+using Client.Scripts.Features.Common_Сomponents;
+using Client.Scripts.Features.Common_Сomponents.Tags;
+using Client.Scripts.Features.Input_Features.Component;
+using Client.Scripts.Features.Interaction_Feature.Component;
 using Client.Scripts.Models;
 using Leopotam.Ecs;
 using UnityEngine;
 using ETouch = UnityEngine.InputSystem.EnhancedTouch;
 
-namespace Client.Scripts.ECS_Feature.Camera_Control.System
+namespace Client.Scripts.Features.Camera_Control.System
 {
     internal class CameraControl : IEcsRunSystem, IEcsInitSystem
     {

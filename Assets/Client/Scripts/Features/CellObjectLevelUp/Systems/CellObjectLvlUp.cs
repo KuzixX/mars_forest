@@ -1,12 +1,11 @@
-using Client.Scripts.ECS_Feature.Common_Сomponents;
 using Client.Scripts.Features.Common_Сomponents;
 using Client.Scripts.Features.Resources_Generation.Component;
 using Client.Scripts.Models;
-using Client.Scripts.Services;
+using Client.Scripts.Services.SQL;
 using Leopotam.Ecs;
 using UnityEngine;
 
-namespace Client.Scripts.ECS_Feature.CellObjectLevelUp
+namespace Client.Scripts.Features.CellObjectLevelUp.Systems
 {
     internal class CellObjectLvlUp : IEcsInitSystem
     {

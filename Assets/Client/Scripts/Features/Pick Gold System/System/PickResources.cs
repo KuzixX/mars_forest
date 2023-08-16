@@ -1,23 +1,16 @@
-using Client.Scripts.ECS_Feature.Common_Сomponents;
-using Client.Scripts.ECS_Feature.Common_Сomponents.Tags;
-using Client.Scripts.ECS_Feature.ECS_Feature_old.UI.Component;
-using Client.Scripts.ECS_Feature.Pick_Gold_System.Component;
 using Client.Scripts.Features.Common_Сomponents;
+using Client.Scripts.Features.Common_Сomponents.Tags;
+using Client.Scripts.Features.Pick_Gold_System.Component;
 using Client.Scripts.Features.Resources_Generation.Component;
+using Client.Scripts.Features.UI.Component;
 using Client.Scripts.Models;
-using Client.Scripts.Models.UI_Models;
-using Client.Scripts.Protocols;
-using Client.Scripts.Protocols.Interfaces;
-using Client.Scripts.Services;
 using Leopotam.Ecs;
 using UnityEngine;
 
-namespace Client.Scripts.ECS_Feature.Pick_Gold_System.System
+namespace Client.Scripts.Features.Pick_Gold_System.System
 {
     internal class PickResources : IEcsRunSystem, IEcsInitSystem
     {
-        //private Scripts.UI.UI _ui;
-        private FX _fx;
         private EcsWorld _world;
         private StaticData _staticData;
         private readonly EcsFilter<CellObject, IsFull> _trees;
@@ -28,11 +21,8 @@ namespace Client.Scripts.ECS_Feature.Pick_Gold_System.System
 
         public void Init()
         {
-            //_ui.mainScreen.pickGoldBtn.onClick.AddListener(() =>
-            //{
-                ref var pickGold = ref _pickGold.Get1(0);
+            ref var pickGold = ref _pickGold.Get1(0);
                 pickGold.CurrentCycleState += 0.5f;
-            //});
         }
         public void Run()
         {
@@ -53,14 +43,9 @@ namespace Client.Scripts.ECS_Feature.Pick_Gold_System.System
                 foreach (var t in _staticData.TreesData)
                 {
                     if (tree.Get<CellObject>().title != t.Title) continue;
-                    var anchoredPosition = WorldToScreenConvertor.WorldToCanvasSpace(_sceneData.MainCanvasRect,
-                        _sceneData.MainCamera, tree.Get<CellObject>().spawnPoint.position);
                     var stateEvent = _world.NewEntity();
                     stateEvent.Get<GameStateChange>().EventType = Events.GoldAdd;
                     stateEvent.Get<GameStateChange>().Value = tree.Get<CellObject>().level * t.AmountOfProduct / 2;
-                    tree.Get<CellObject>().isFullIcon.GetComponent<RectTransform>().anchoredPosition = anchoredPosition;
-                    _fx.goldParticleSystem.GetComponent<ParticleSystem>().Play();
-                                
                     tree.Del<IsFull>();
                 }
                 pickGold.CurrentCycleState = 0;

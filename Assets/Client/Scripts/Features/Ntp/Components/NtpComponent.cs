@@ -1,6 +1,6 @@
 using System;
 
-namespace Client.Scripts.ECS_Feature.ECS_Feature_old.Ntp
+namespace Client.Scripts.Features.Ntp.Components
 {
     internal struct NtpComponent
     {

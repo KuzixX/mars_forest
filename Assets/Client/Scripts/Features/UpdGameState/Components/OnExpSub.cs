@@ -1,4 +1,4 @@
-﻿namespace Client.Scripts.ECS_Feature.UpdGameState.Components
+﻿namespace Client.Scripts.Features.UpdGameState.Components
 {
     internal struct OnExpSub
     {

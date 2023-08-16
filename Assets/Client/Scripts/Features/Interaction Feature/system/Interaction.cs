@@ -1,12 +1,12 @@
-﻿using Client.Scripts.ECS_Feature.Common_Сomponents;
-using Client.Scripts.ECS_Feature.Common_Сomponents.Tags;
-using Client.Scripts.ECS_Feature.Input_Features.Component;
-using Client.Scripts.ECS_Feature.Interaction_Feature.Component;
+﻿using Client.Scripts.Features.Common_Сomponents;
+using Client.Scripts.Features.Common_Сomponents.Tags;
+using Client.Scripts.Features.Input_Features.Component;
+using Client.Scripts.Features.Interaction_Feature.Component;
 using Client.Scripts.Models;
 using Leopotam.Ecs;
 using UnityEngine;
 
-namespace Client.Scripts.ECS_Feature.Interaction_Feature.system
+namespace Client.Scripts.Features.Interaction_Feature.system
 {
     internal class Interaction : IEcsRunSystem, IEcsInitSystem
     {
@@ -61,11 +61,11 @@ namespace Client.Scripts.ECS_Feature.Interaction_Feature.system
                 }
             }
             // Set target
-            if (_lock.IsEmpty())
-            {
-                ref var target = ref _target.Get1(0);
-                target.transform.position = interactionData.RayInfo.point;
-            }
+            //if (_lock.IsEmpty())
+            //{
+           //     ref var target = ref _target.Get1(0);
+            //    target.transform.position = interactionData.RayInfo.point;
+           // }
         }
     }
 }

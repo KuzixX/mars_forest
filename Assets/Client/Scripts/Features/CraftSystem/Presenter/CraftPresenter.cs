@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Client.Scripts.Features.Commands;
 using Client.Scripts.Features.CraftSystem.Models;
 using Client.Scripts.Models;
 using Client.Scripts.Protocols.Interfaces;
@@ -42,6 +43,7 @@ namespace Client.Scripts.Features.CraftSystem.Presenter
                 newTree.Prefab = tree.Prefab;
                 newTree.Price = tree.Price;
                 newTree.ProductionCycleTime = tree.ProductionCycleTime;
+                newTree.EcsCommand = new SpawnCraftItem(tree.Title); 
                 _treeModels.Add(newTree);
             }
 
@@ -52,6 +54,7 @@ namespace Client.Scripts.Features.CraftSystem.Presenter
                 treeView.GetComponent<TreeView>().SetDescription(tree.Description);
                 treeView.GetComponent<TreeView>().SetPrice(tree.Price);
                 treeView.GetComponent<TreeView>().SetImage(tree.Image);
+                treeView.GetComponent<TreeView>().Button.onClick.AddListener(() => {tree.EcsCommand.Execute();});
             }
         }
     }

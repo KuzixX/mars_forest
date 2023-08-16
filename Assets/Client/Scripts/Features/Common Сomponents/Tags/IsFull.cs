@@ -1,6 +1,6 @@
 using Leopotam.Ecs;
 
-namespace Client.Scripts.ECS_Feature.Common_Сomponents.Tags
+namespace Client.Scripts.Features.Common_Сomponents.Tags
 {
     public struct IsFull : IEcsIgnoreInFilter
     {

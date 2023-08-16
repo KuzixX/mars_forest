@@ -1,4 +1,4 @@
-﻿namespace Client.Scripts.ECS_Feature.ECS_Feature_old.UI.Component
+﻿namespace Client.Scripts.Features.UI.Component
 {
     internal struct EventEntityTag
     {

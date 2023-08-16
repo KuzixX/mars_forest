@@ -1,7 +1,7 @@
-using Client.Scripts.ECS_Feature.Common_Сomponents;
+using Client.Scripts.Features.Common_Сomponents;
 using Voody.UniLeo;
 
-namespace Client.Scripts.ECS_Feature.ECS_Feature_old.MonoProviders
+namespace Client.Scripts.Features.MonoProviders
 {
     public sealed class CellProvider : MonoProvider<Cell>
     {

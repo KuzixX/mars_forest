@@ -1,16 +1,14 @@
-using Client.Scripts.ECS_Feature.Camera_Control.Component;
-using Client.Scripts.ECS_Feature.Common_Сomponents;
-using Client.Scripts.ECS_Feature.Common_Сomponents.Tags;
-using Client.Scripts.ECS_Feature.Interaction_Feature.Component;
-using Client.Scripts.ECS_Feature.Resources_Generation;
-using Client.Scripts.ECS_Feature.SpawnCellObject.Component;
+using Client.Scripts.Features.Camera_Control.Component;
+using Client.Scripts.Features.Common_Сomponents.Tags;
+using Client.Scripts.Features.Interaction_Feature.Component;
 using Client.Scripts.Features.Resources_Generation.Component;
+using Client.Scripts.Features.SpawnCellObject.Component;
 using Client.Scripts.Models;
 using Leopotam.Ecs;
 using Leopotam.Ecs.Ui.Components;
 using UnityEngine;
 
-namespace Client.Scripts.ECS_Feature.SpawnCellObject.System
+namespace Client.Scripts.Features.SpawnCellObject.System
 {
     internal class CellObjectDataGenerator : IEcsRunSystem
     {

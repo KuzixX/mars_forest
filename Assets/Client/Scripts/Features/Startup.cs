@@ -1,24 +1,26 @@
-using Client.Scripts.ECS_Feature.Camera_Control.System;
-using Client.Scripts.ECS_Feature.CellObjectLevelUp;
-using Client.Scripts.ECS_Feature.ExtendLvl.Systems;
-using Client.Scripts.ECS_Feature.Interaction_Feature.system;
-using Client.Scripts.ECS_Feature.Pick_Gold_System.System;
-using Client.Scripts.ECS_Feature.Resources_Generation.System;
-using Client.Scripts.ECS_Feature.Robot.System;
-using Client.Scripts.ECS_Feature.SpawnCellObject.System;
-using Client.Scripts.ECS_Feature.UpdGameState.Systems;
-using Client.Scripts.ECS_Feature.WTCSpace.System;
+using Client.Scripts.Features.Camera_Control.System;
+using Client.Scripts.Features.CellObjectLevelUp.Systems;
 using Client.Scripts.Features.ClearSystem.Systems;
+using Client.Scripts.Features.Delivery_Lander.Systems;
+using Client.Scripts.Features.Delivery_Unit.Components;
+using Client.Scripts.Features.Delivery_Unit.Systems;
 using Client.Scripts.Features.Experience_Bar.System;
+using Client.Scripts.Features.ExtendLvl.Systems;
+using Client.Scripts.Features.Interaction_Feature.system;
+using Client.Scripts.Features.Pick_Gold_System.System;
 using Client.Scripts.Features.Projection_Systems.System;
+using Client.Scripts.Features.Resources_Generation.System;
+using Client.Scripts.Features.Robot.System;
+using Client.Scripts.Features.SpawnCellObject.System;
+using Client.Scripts.Features.UpdGameState.Systems;
 using Client.Scripts.Models;
 using Client.Scripts.Protocols.Interfaces;
-using Client.Scripts.Services;
+using Client.Scripts.Services.SQL;
 using Leopotam.Ecs;
 using UnityEngine;
 using Voody.UniLeo;
 using Zenject;
-using Input = Client.Scripts.ECS_Feature.Input_Features.System.Input;
+using Input = Client.Scripts.Features.Input_Features.System.Input;
 
 namespace Client.Scripts.Features
 {
@@ -66,11 +68,13 @@ namespace Client.Scripts.Features
                 .Add(new CellObjectLvlUp())
                 .Add(new ExtendLevel())
                 .Add(new ResourcesGeneration())
-                .Add(new PickResources())
+                .Add(new DeliveryLander())
+                //.Add(new PickResources())
                 .Add(new ExtendLevel())
-                .Add(new HomeRobot())
+                //.Add(new HomeRobot())
+                .Add(new UnitMovement())
                 .Add(new CameraControl())
-                .Add(new WorldToCanvasSpace())
+                //.Add(new WorldToCanvasSpace())
                 .Add(new UpdateGameState())
                 .Add(new ExperienceBar())
                 .Inject(_sqlLiteDB)

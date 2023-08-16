@@ -4,7 +4,7 @@ using Client.Scripts.UI.Events;
 using UnityEngine;
 using Zenject;
 
-namespace Client.Scripts.UI.Screens
+namespace Client.Scripts.UI.Menus
 {
     public class CraftMenu : Menus.Menu
     {

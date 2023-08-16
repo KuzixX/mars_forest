@@ -5,7 +5,7 @@ using System.IO;
 using Mono.Data.Sqlite;
 using UnityEngine;
 
-namespace Client.Scripts.Services
+namespace Client.Scripts.Services.SQL
 {
     public class SqlLiteDB : MonoBehaviour
     {

@@ -1,4 +1,4 @@
-namespace Client.Scripts.ECS_Feature.Interaction_Feature.Component
+namespace Client.Scripts.Features.Interaction_Feature.Component
 {
     public struct Target
     {
